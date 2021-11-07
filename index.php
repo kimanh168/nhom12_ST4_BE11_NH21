@@ -133,32 +133,33 @@
 							<ul class="hot-deal-countdown">
 								<li>
 									<div>
-										<h3>02</h3>
+										<h3 id ="d"></h3>
 										<span>Days</span>
 									</div>
 								</li>
 								<li>
 									<div>
-										<h3>10</h3>
+										<h3 id="h"></h3>
 										<span>Hours</span>
 									</div>
 								</li>
 								<li>
 									<div>
-										<h3>34</h3>
+										<h3 id="m"></h3>
 										<span>Mins</span>
 									</div>
 								</li>
 								<li>
-									<div>
-										<h3>60</h3>
+									<div >
+										<h3 id="s"></h3>
 										<span>Secs</span>
 									</div>
 								</li>
 							</ul>
 							<h2 class="text-uppercase">hot deal this week</h2>
-							<p>New Collection Up to 50% OFF</p>
-							<a class="primary-btn cta-btn" href="#">Shop now</a>
+							<p >New Collection Up to 50% OFF</p>
+							<div id="mua"><a class="primary-btn cta-btn" href="#" >Shop Now</a></div>
+							<script  src="js/demnguoc.js"></script>
 						</div>
 					</div>
 				</div>
@@ -196,9 +197,6 @@
 										<div class="product">
 											<div class="product-img">
 												<img src="./img/<?php echo $value['image']?>" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
