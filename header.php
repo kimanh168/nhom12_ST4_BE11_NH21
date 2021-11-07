@@ -4,8 +4,12 @@ require "models/db.php";
 require "models/product.php";
 $product=new Product;
 $laySanPhamMoiNhat=$product->laySanPhamMoiNhat();
+$layDienThoaiMoiNhat=$product->layDienThoaiMoiNhat();
 $laySanPhamNoiBat=$product->laySanPhamNoiBat();
 $layDienThoai=$product->layDienThoai();
+$layDienThoaiMoiNhat=$product->layDienThoaiMoiNhat();
+$layLapTopMoiNhat=$product->layLapTopMoiNhat();
+$layLoaMoiNhat=$product->layLoaMoiNhat();
 $layLapTop=$product->layLapTop();
 $layLoa=$product->layLoa();
 ?>
@@ -182,7 +186,7 @@ $layLoa=$product->layLoa();
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="index.php">Home</a></li>
 						<li><a href="#">Hot Deals</a></li>
 						<li><a href="#">Categories</a></li>
 						<li><a href="#">Laptops</a></li>

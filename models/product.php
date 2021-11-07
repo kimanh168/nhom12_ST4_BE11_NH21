@@ -35,7 +35,30 @@ class Product extends Db
         return $items; //return an array
     }
     
-    
+    public function layDienThoaiMoiNhat()
+    {
+        $sql = self::$connection->prepare("SELECT *FROM products WHERE type_id=1 ORDER BY created_at DESC LIMIT 10");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    } 
+    public function layLapTopMoiNhat()
+    {
+        $sql = self::$connection->prepare("SELECT *FROM products WHERE type_id=2 ORDER BY created_at DESC LIMIT 10");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }  
+    public function layLoaMoiNhat()
+    {
+        $sql = self::$connection->prepare("SELECT *FROM products WHERE type_id=3 ORDER BY created_at DESC LIMIT 10");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }  
     public function layDienThoai()
     {
         $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`= 1 ");
