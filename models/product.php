@@ -11,13 +11,47 @@ class Product extends Db
     }
     public function getProductById($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE id = ?");
+        $sql = self::$connection->prepare("SELECT * from products as PR Join protypes as OD on PR.type_id= OD.type_id JOIN manufactures as MN on PR.manu_id = MN.manu_id WHERE id = ?");
         $sql->bind_param("i",$id);
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }  
+
+    public function getProductByType($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+
+    public function get3ProductByType($type_id, $page, $perPage)
+    {
+        $fristLink = ($page -1) * $perPage;
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = ? LIMIT ?, ?");
+        $sql->bind_param("iii", $type_id,$fristLink, $perPage);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+
+    function paginate($url, $total, $perPage)
+    {
+        $totalLinks = ceil($total/$perPage);
+ 	    $link ="";
+    	for($j=1; $j <= $totalLinks ; $j++)
+     	{
+      		$link = $link."<li><a href='$url&page=$j'> $j </a></li>";
+     	}
+     	return $link;
+    }
+
+
     public function laySanPhamMoiNhat()
     {
         $sql = self::$connection->prepare("SELECT *FROM products ORDER BY created_at DESC LIMIT 10");
