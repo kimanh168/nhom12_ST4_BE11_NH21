@@ -59,11 +59,11 @@
 					<!-- Order Details -->
 					<div class="col-md-5 order-details">
 						<div class="section-title text-center">
-							<h3 class="title">Information</h3>
+							<h3 class="title">Thông tin</h3>
 						</div>
 						<div class="order-summary">
                         <div class="order-col">
-								<div><strong>Price</strong></div>
+								<div><strong>Giá</strong></div>
 								<div><strong class="order-total"><?php  echo number_format( $value['price'])?>VND</strong></div>
 							</div>
 							<div class="order-products">

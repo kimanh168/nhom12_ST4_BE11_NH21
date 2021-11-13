@@ -39,8 +39,42 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-
-    function paginate($url, $total, $perPage)
+    function paginate($url, $total, $perPage,$page)
+    {
+        $totalLinks = ceil($total/$perPage);
+ 	    $link ="";
+    	for($j=1; $j <= $totalLinks ; $j++)
+     	{
+            if($j == $page){
+      		    $link = $link."<li  class='active' > <a  href='$url&page=$j'> $j </a></li>";
+            }else{
+                $link = $link."<li> <a  href='$url&page=$j'> $j </a></li>";
+            }
+     	}
+     	return $link;
+    }
+    public function search3($keyword,  $page, $perPage)
+    {
+        $fristLink = ($page -1) * $perPage;
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? LIMIT ?, ?");
+        $keyword = "%$keyword%";
+        $sql->bind_param("sii", $keyword,$fristLink, $perPage);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    public function search($keyword)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
+        $keyword = "%$keyword%";
+        $sql->bind_param("s", $keyword);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    function paginateSearch($url, $total, $perPage)
     {
         $totalLinks = ceil($total/$perPage);
  	    $link ="";
@@ -50,8 +84,6 @@ class Product extends Db
      	}
      	return $link;
     }
-
-
     public function laySanPhamMoiNhat()
     {
         $sql = self::$connection->prepare("SELECT *FROM products ORDER BY created_at DESC LIMIT 10");
@@ -118,15 +150,5 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }  
-    public function search($keyword)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
-        $keyword = "%$keyword%";
-        $sql->bind_param("s", $keyword);
-        $sql->execute(); //return an object
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items; //return an array
-    }
 
 }
