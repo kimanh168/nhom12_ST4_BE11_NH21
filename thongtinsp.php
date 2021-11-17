@@ -344,6 +344,7 @@
 
 					<div class="col-md-12">
 						<div class="section-title text-center">
+<<<<<<< HEAD
 							<h3 class="title">Related Products</h3>
 						</div>
 					</div>

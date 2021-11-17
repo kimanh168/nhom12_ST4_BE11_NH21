@@ -43,21 +43,25 @@
                       <th style="width: 10%">Name</th>
                       <th style="width: 15%">Image</th>
                       <th style="width: 5%">Price</th>
+                      <th style="width: 20%">Description</th>
                       <th style="width: 8%">Manufactures</th>
                       <th style="width: 10%">Protype</th>
-                      <th style="width: 15%">Action</th>
+                      <th style="width: 10%">Action</th>
                   </tr>
               </thead>
               <tbody>
-                  <?php
-                        $getAllProducts = $product -> getAllProducts();
-                        foreach($getAllProducts as $value):
-                   ?>
+                  <?php 
+                  $getAllProducts = $product ->getAllProducts();
+                  foreach ($getAllProducts as $value):
+                  ?>
                   <tr>
                       <td><?php echo $value['id'] ?></td>
-                      <td><?php echo $value['name'] ?><td>
-                      <td><img src="../img/<?php echo $value['image'] ?>" style ="width:70px" alt="" ></td>
-                      <td class="project_progress"><?php echo number_format($value['price'])?></td>
+                      <td>
+                          <a><?php echo $value['name'] ?></a>
+                      </td>
+                      <td><img src="../img/<?php echo $value['image'] ?>" style="width: 70px" alt=""></td>
+                      <td class="project_progress"><?php echo number_format($value['price']) ?>VND</td>
+                      <td class="project_progress"><?php echo $value['description'] ?></td>
                       <td class="project_progress"><?php echo $value['manu_name'] ?></td>
                       <td class="project_progress"><?php echo $value['type_name'] ?></td>
                       <td class="project-actions text-right">
