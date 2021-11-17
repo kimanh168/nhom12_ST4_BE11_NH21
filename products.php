@@ -256,7 +256,7 @@
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/<?php echo $value['image'] ?>" alt="">
+										<img src="./img/<?php echo $value['image'] ?>" >
 										<div class="product-label">
 											<span class="new">NEW</span>
 										</div>
@@ -292,7 +292,7 @@
 						<div class="store-filter clearfix">
 							<span class="store-qty">Showing 20-100 products</span>
 							<ul class="store-pagination">
-                            <?php echo $product->paginate($url, $total, $perPage); ?>
+                            <?php echo $product->paginate($url, $total, $perPage,$page); ?>
 								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 							</ul>
 						</div>

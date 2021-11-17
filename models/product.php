@@ -40,13 +40,17 @@ class Product extends Db
         return $items; //return an array
     }
 
-    function paginate($url, $total, $perPage)
+    function paginate($url, $total, $perPage,$page)
     {
         $totalLinks = ceil($total/$perPage);
  	    $link ="";
     	for($j=1; $j <= $totalLinks ; $j++)
      	{
-      		$link = $link."<li><a href='$url&page=$j'> $j </a></li>";
+            if($j == $page){
+      		    $link = $link."<li  class='active' > <a  href='$url&page=$j'> $j </a></li>";
+            }else{
+                $link = $link."<li> <a  href='$url&page=$j'> $j </a></li>";
+            }
      	}
      	return $link;
     }
@@ -101,7 +105,6 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }  
-
     public function layLapTop()
     {
         $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`= 2");
