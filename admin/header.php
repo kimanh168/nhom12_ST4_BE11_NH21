@@ -3,8 +3,11 @@ require "config.php";
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
+require "models/manufacture.php";
 //
 $product = new Product;
+$protype = new Protype;
+$manufacture = new Manufacture;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -226,13 +229,13 @@ $product = new Product;
             </a>
           </li>
           <li class="nav-item">
-                <a href="products.php" class="nav-link">
+                <a href="manufactures.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manufactures</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="products.php" class="nav-link">
+                <a href="protype.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Protypes</p>
                 </a>
