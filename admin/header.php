@@ -3,9 +3,11 @@ require "config.php";
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
+require "models/manufacture.php";
 //
 $product = new Product;
 $protype = new Protype;
+$manufacture = new Manufacture;
 ?>
 <!DOCTYPE html>
 <html lang="en">
