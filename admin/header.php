@@ -238,7 +238,7 @@ $product = new Product;
                 </a>
               </li>
               <li class="nav-item">
-                <a href="products.php" class="nav-link">
+                <a href="productadd.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Add</p>
                 </a>
