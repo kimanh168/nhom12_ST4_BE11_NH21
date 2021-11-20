@@ -46,7 +46,7 @@
                       <th style="width: 20%">Description</th>
                       <th style="width: 8%">Manufactures</th>
                       <th style="width: 10%">Protype</th>
-                      <th style="width: 10%">Action</th>
+                      <th style="width: 1%">Action</th>
                   </tr>
               </thead>
               <tbody>
