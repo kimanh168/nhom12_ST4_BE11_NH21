@@ -1,20 +1,5 @@
 <?php 
 include "header.php" ;
-if(isset($_POST['name'])){
-    $name = $_POST['name'];
-    $manuname = $_POST['manu'];
-    $typename = $_POST['type'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
-    if(isset($_FILES['image'])){
-        $file = $_FILES['image'];
-        $file_name = $file['name'];
-        move_uploaded_file($file['tmp_name'],'img/'.$file_name);
-    }
-    $feature = $_POST['feature'];
-
-    $addproduct = $product -> addProduct($name,$manuname,$typename,$price,$description,$feature); 
-}
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -37,13 +22,13 @@ if(isset($_POST['name'])){
 
     <!-- Main content -->
     <section class="content">
+    <form action="add.php" method="POST" roles="form" enctype="multipart/form-data">      
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
-            <div class="card-header">
-                <form action="" method="POST" roles="form" enctype="multipart/form-data">
+            <div class="card-header">        
               <h3 class="card-title">General</h3>
-              <div class="card-tools">
+              <div class="card-tools ">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                   <i class="fas fa-minus"></i>
                 </button>
@@ -84,7 +69,7 @@ if(isset($_POST['name'])){
                 <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm">
               </div>
               <div class="form-group">
-                <label for="inputPrice">Ảnh Sản Phẩm</label>
+                <label for="inputImg">Ảnh Sản Phẩm</label>
                 <input type="file" name="image" id="inputImage" class="form-control">
               </div>
               <div class="form-group">
@@ -100,7 +85,7 @@ if(isset($_POST['name'])){
                 <label>
                     <input type="radio" name="feature" value="0" > Không
                 </label>
-                </div>
+              </div>
               </div>
             </div>
             <!-- /.card-body -->
@@ -111,7 +96,7 @@ if(isset($_POST['name'])){
       <div class="row">
         <div class="col-12">
           <a href="products.php" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right" >
+          <input type="submit" value="Create new Porject" class="btn btn-success float-right" name="submit" >
         </div>
       </div>
       </form>

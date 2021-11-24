@@ -5,7 +5,8 @@ class Product extends Db{
         $sql = self::$connection->prepare("SELECT * 
         FROM products,manufactures,protypes
         WHERE products.manu_id=manufactures.manu_id
-        AND products.type_id=protypes.type_id");
+        AND products.type_id=protypes.type_id
+        ORDER BY 'id' DESC");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -29,13 +30,14 @@ class Product extends Db{
         return $items; //return an array
     }  
 
-    public function addProduct($name,$manuname,$typename,$price,$description,$feature)
+    public function addProducts($name,$manu_id,$type_id,$price,$image,$description,$feature)
     {
-        $sql = self::$connection->prepare("INSERT INTO `products`( `id`,`name`, `manu_id`, `type_id`, `price`, `pro_image`, `description`, `feature`, `created_at`) VALUES ('NULL','$name','$manuname','$typename','$price','NULL','$description','$feature','NUll')");
-        $sql->execute();
-        return $sql; 
-    }  
-
+        $sql = self::$connection->prepare("INSERT 
+        INTO `products`(`name`, `manu_id`, `type_id`, `price`, `image`, `description`, `feature`) 
+        VALUES (?,?,?,?,?,?,?)");
+        $sql->bind_param("siiissi", $name,$manu_id,$type_id,$price,$image,$description,$feature);
+        return $sql->execute(); //return an object
+    }
     public function deleteProduct($id)
     {
         $sql = self::$connection->prepare("DELETE FROM `products` WHERE `id`='$id'");

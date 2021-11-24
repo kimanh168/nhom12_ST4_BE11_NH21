@@ -235,7 +235,7 @@ $manufacture = new Manufacture;
                 </a>
               </li>
               <li class="nav-item">
-                <a href="protype.php" class="nav-link">
+                <a href="protype.php" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Protypes</p>
                 </a>
