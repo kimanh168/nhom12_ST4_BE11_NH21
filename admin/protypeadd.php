@@ -1,4 +1,5 @@
 <?php 
+$page = 'protypeadd';
 include "header.php" ;
 ?>
   <!-- Content Wrapper. Contains page content -->

@@ -51,8 +51,20 @@
               </thead>
               <tbody>
                   <?php 
-                  $getAllProducts = $product ->getAllProducts();
-                  foreach ($getAllProducts as $value):
+
+                    $getAllProducts = $product -> getAllProducts();
+                    // hiển thị 10 sản phẩm trên 1 trang
+                    $perPage = 10; 				
+                    // Lấy số trang trên thanh địa chỉ
+                    $page = isset($_GET['page'])?$_GET['page']:1; 			
+                    // Tính tổng số dòng, ví dụ kết quả là 18
+                    $total = count($getAllProducts); 					
+                    // lấy đường dẫn đến file hiện hành
+                    $url = $_SERVER['PHP_SELF'];	
+                    
+                    $get10Product = $product -> get10Product($page,$perPage);
+                    foreach($get10Product as $value):
+                    
                   ?>
                   <tr>
                       <td><?php echo $value['id'] ?></td>
@@ -78,8 +90,16 @@
                       </td>
                   </tr>
                   <?php endforeach; ?>
-              </tbody>
+              </tbody>             
           </table>
+                  <!-- store bottom filter -->
+                  <div class="store-filter clearfix">
+							    <ul class="store-pagination">
+                  <?php echo $product->paginate($url, $total, $perPage, $page); ?>
+								  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+							    </ul>
+						      </div>
+						      <!-- /store bottom filter -->
         </div>
         <!-- /.card-body -->
       </div>
