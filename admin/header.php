@@ -261,7 +261,7 @@ $manufacture = new Manufacture;
               <li class="nav-item">
                 <a href="manufactureadd.php" class="nav-link <?php if($page == 'manufactureadd'){echo 'active';}?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manufacture Add</p>
+                  <p>Add Manufacture </p>
                 </a>
               </li>
         </ul>

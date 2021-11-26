@@ -1,5 +1,6 @@
 <?php $page = 'products'; include "header.php" ?>
   <!-- Content Wrapper. Contains page content -->
+  <link rel="stylesheet" href="dist/css/phantrang.css">
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -93,12 +94,16 @@
               </tbody>             
           </table>
                   <!-- store bottom filter -->
-                  <div class="store-filter clearfix">
+                  <div class="container">
+                  <div class="flex">
 							    <ul class="store-pagination">
                   <?php echo $product->paginate($url, $total, $perPage, $page); ?>
 								  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                  <div class="bar"></div>
 							    </ul>
 						      </div>
+                  </div>
+                  
 						      <!-- /store bottom filter -->
         </div>
         <!-- /.card-body -->
