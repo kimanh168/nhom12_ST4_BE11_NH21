@@ -2,7 +2,6 @@
 require "config.php";
 require "models/db.php";
 require "models/product.php";
-
 $product = new Product;
 //xu ly them:
 if(isset($_POST['submit'])){

@@ -48,7 +48,7 @@ include "header.php" ;
                   $manu = $manufacture ->getAllManufacture(); 
                   foreach ($manu as $value):
                   ?>
-                  <option value="<?php echo $value['manu_id'] ?>"><?php echo $value['manu_name'] ?></option>
+                  <option value=<?php echo $value['manu_id'] ?>><?php echo $value['manu_name'] ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -62,7 +62,6 @@ include "header.php" ;
                   ?>
                   <option value="<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></option>
                   <?php endforeach; ?>
-                </select>
                 </select>
               </div>
               <div class="form-group">
@@ -100,11 +99,9 @@ include "header.php" ;
           <input type="submit" value="Create new Porject" class="btn btn-success float-right" name="submit" >
         </div>
       </div>
-      </form>
+    </form>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <?php include "footer.html" ?>
-
-
