@@ -243,7 +243,13 @@ $manufacture = new Manufacture;
               <li class="nav-item">
                 <a href="productadd.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
+                  <p>Add Product</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="protypeadd.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Protype</p>
                 </a>
               </li>
               <li class="nav-item">

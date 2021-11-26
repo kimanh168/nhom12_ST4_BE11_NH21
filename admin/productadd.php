@@ -1,20 +1,5 @@
 <?php 
 include "header.php" ;
-if(isset($_POST['name'])){
-    $name = $_POST['name'];
-    $manuname = $_POST['manu'];
-    $typename = $_POST['type'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
-    if(isset($_FILES['image'])){
-        $file = $_FILES['image'];
-        $file_name = $file['name'];
-        move_uploaded_file($file['tmp_name'],'img/'.$file_name);
-    }
-    $feature = $_POST['feature'];
-
-    $addproduct = $product -> addProduct($name,$manuname,$typename,$price,$description,$feature); 
-}
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -37,11 +22,11 @@ if(isset($_POST['name'])){
 
     <!-- Main content -->
     <section class="content">
+    <form action="add.php" method="POST" roles="form" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-                <form action="" method="POST" roles="form" enctype="multipart/form-data">
               <h3 class="card-title">General</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -59,10 +44,10 @@ if(isset($_POST['name'])){
                 <select id="inputManu" name="manu" class="form-control custom-select">
                   <option selected disabled>Select one</option>
                   <?php 
-                  $manu = $product ->layLoai(); 
-                  foreach ($manu as $value):
+                  $getAllManufacture = $manufacture ->getAllManufacture(); 
+                  foreach ($getAllManufacture as $value):
                   ?>
-                  <option value="<?php echo $value['manu_id'] ?>"><?php echo $value['manu_name'] ?></option>
+                  <option value=<?php echo $value['manu_id'] ?>><?php echo $value['manu_name'] ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
@@ -71,12 +56,11 @@ if(isset($_POST['name'])){
                 <select id="inputType" name="type" class="form-control custom-select">
                   <option selected disabled>Select one</option>
                   <?php 
-                  $type = $product ->layHang(); 
-                  foreach ($type as $value):
+                  $getAllProtype = $protype ->getAllProtype(); 
+                  foreach ($getAllProtype as $value):
                   ?>
                   <option value="<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></option>
                   <?php endforeach; ?>
-                </select>
                 </select>
               </div>
               <div class="form-group">
@@ -110,15 +94,12 @@ if(isset($_POST['name'])){
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="products.php" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right" >
+          <input type="submit" value="Create new Porject" class="btn btn-success float-right"name="submit" >
         </div>
       </div>
-      </form>
+    </form>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <?php include "footer.html" ?>
-
-
