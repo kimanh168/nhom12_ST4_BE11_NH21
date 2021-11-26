@@ -27,4 +27,5 @@ class Product extends Db{
         $sql->bind_param("i",$id);
         return  $sql->execute();
     } 
+    
 }
