@@ -1,4 +1,5 @@
 <?php 
+$page = 'productadd';
 include "header.php" ;
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -22,13 +23,13 @@ include "header.php" ;
 
     <!-- Main content -->
     <section class="content">
-    <form action="add.php" method="POST" roles="form" enctype="multipart/form-data">
+    <form action="add.php" method="POST" roles="form" enctype="multipart/form-data">      
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
-            <div class="card-header">
+            <div class="card-header">        
               <h3 class="card-title">General</h3>
-              <div class="card-tools">
+              <div class="card-tools ">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                   <i class="fas fa-minus"></i>
                 </button>
@@ -44,8 +45,8 @@ include "header.php" ;
                 <select id="inputManu" name="manu" class="form-control custom-select">
                   <option selected disabled>Select one</option>
                   <?php 
-                  $getAllManufacture = $manufacture ->getAllManufacture(); 
-                  foreach ($getAllManufacture as $value):
+                  $manu = $manufacture ->getAllManufacture(); 
+                  foreach ($manu as $value):
                   ?>
                   <option value=<?php echo $value['manu_id'] ?>><?php echo $value['manu_name'] ?></option>
                   <?php endforeach; ?>
@@ -56,8 +57,8 @@ include "header.php" ;
                 <select id="inputType" name="type" class="form-control custom-select">
                   <option selected disabled>Select one</option>
                   <?php 
-                  $getAllProtype = $protype ->getAllProtype(); 
-                  foreach ($getAllProtype as $value):
+                  $type = $protype ->getAllProtype(); 
+                  foreach ($type as $value):
                   ?>
                   <option value="<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></option>
                   <?php endforeach; ?>
@@ -68,7 +69,7 @@ include "header.php" ;
                 <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm">
               </div>
               <div class="form-group">
-                <label for="inputPrice">Ảnh Sản Phẩm</label>
+                <label for="inputImg">Ảnh Sản Phẩm</label>
                 <input type="file" name="image" id="inputImage" class="form-control">
               </div>
               <div class="form-group">
@@ -84,7 +85,7 @@ include "header.php" ;
                 <label>
                     <input type="radio" name="feature" value="0" > Không
                 </label>
-                </div>
+              </div>
               </div>
             </div>
             <!-- /.card-body -->
@@ -94,7 +95,8 @@ include "header.php" ;
       </div>
       <div class="row">
         <div class="col-12">
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right"name="submit" >
+          <a href="products.php" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Create new Porject" class="btn btn-success float-right" name="submit" >
         </div>
       </div>
     </form>

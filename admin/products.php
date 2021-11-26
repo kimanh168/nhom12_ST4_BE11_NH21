@@ -1,4 +1,4 @@
-<?php include "header.php" ?>
+<?php $page = 'products'; include "header.php" ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -70,7 +70,7 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="delete_product.php?id=<?php echo $value['id'] ?>">
+                          <a class="btn btn-danger btn-sm" href="delproduct.php?id=<?php echo $value['id'] ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

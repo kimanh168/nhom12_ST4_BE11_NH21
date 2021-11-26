@@ -8,8 +8,6 @@ $product = new Product;
 $protype = new Protype;
 //
 
-
-
 $laySanPhamMoiNhat=$product->laySanPhamMoiNhat();
 $layDienThoaiMoiNhat=$product->layDienThoaiMoiNhat();
 $laySanPhamNoiBat=$product->laySanPhamNoiBat();

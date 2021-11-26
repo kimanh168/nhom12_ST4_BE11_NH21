@@ -215,7 +215,7 @@ $manufacture = new Manufacture;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="index.php" class="nav-link active">
+            <a href="index.php" class="nav-link <?php if($page == 'index'){echo 'active';}?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -223,25 +223,25 @@ $manufacture = new Manufacture;
             </a>
           </li>
           <li class="nav-item">
-            <a href="products.php" class="nav-link">
+            <a href="products.php" class="nav-link <?php if($page == 'products'){echo 'active';}?>">
               <i class="far fa-circle nav-icon"></i>
               <p>Products</p>
             </a>
           </li>
           <li class="nav-item">
-                <a href="manufactures.php" class="nav-link">
+                <a href="manufactures.php" class="nav-link <?php if($page == 'manufactures'){echo 'active';}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manufactures</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="protype.php" class="nav-link">
+                <a href="protype.php" class="nav-link <?php if($page == 'protypes'){echo 'active';}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Protypes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="productadd.php" class="nav-link">
+                <a href="productadd.php" class="nav-link <?php if($page == 'productadd'){echo 'active';}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Product</p>
                 </a>
@@ -255,7 +255,13 @@ $manufacture = new Manufacture;
               <li class="nav-item">
                 <a href="products.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
+                  <p>Product Edit</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="manufactureadd.php" class="nav-link <?php if($page == 'manufactureadd'){echo 'active';}?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manufacture Add</p>
                 </a>
               </li>
         </ul>
