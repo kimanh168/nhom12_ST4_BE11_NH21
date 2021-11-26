@@ -290,9 +290,9 @@
 										<img src="./img/<?php echo $value['image'] ?>" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
+										<p class="product-category"><?php echo $value['manu_name'] ?></p>
 										<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-										<h4 class="product-price"><?php echo $value['price'] ?> VND</del></h4>
+										<h4 class="product-price"><?php echo number_format($value['price']) ?> VND</del></h4>
 										<div class="product-btns">
 											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>

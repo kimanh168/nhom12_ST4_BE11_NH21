@@ -21,7 +21,10 @@ class Product extends Db
 
     public function getProductByType($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = ?");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products , manufactures  
+        WHERE type_id = ?
+        AND products.manu_id=manufactures.manu_id ");
         $sql->bind_param("i", $type_id);
         $sql->execute(); //return an object
         $items = array();
@@ -32,7 +35,11 @@ class Product extends Db
     public function get3ProductByType($type_id, $page, $perPage)
     {
         $fristLink = ($page -1) * $perPage;
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = ? LIMIT ?, ?");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products, manufactures  
+        WHERE type_id = ?
+        AND products.manu_id=manufactures.manu_id 
+        LIMIT ?, ?");
         $sql->bind_param("iii", $type_id,$fristLink, $perPage);
         $sql->execute(); //return an object
         $items = array();
@@ -56,7 +63,11 @@ class Product extends Db
     public function search3($keyword,  $page, $perPage)
     {
         $fristLink = ($page -1) * $perPage;
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? LIMIT ?, ?");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products , manufactures 
+        WHERE `name` LIKE ?
+        AND products.manu_id=manufactures.manu_id 
+        LIMIT ?, ?");
         $keyword = "%$keyword%";
         $sql->bind_param("sii", $keyword,$fristLink, $perPage);
         $sql->execute(); //return an object
@@ -66,7 +77,10 @@ class Product extends Db
     }
     public function search($keyword)
     {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products, manufactures 
+        WHERE `name` LIKE ?
+        AND products.manu_id=manufactures.manu_id ");
         $keyword = "%$keyword%";
         $sql->bind_param("s", $keyword);
         $sql->execute(); //return an object
@@ -90,7 +104,9 @@ class Product extends Db
     }
     public function laySanPhamMoiNhat()
     {
-        $sql = self::$connection->prepare("SELECT *FROM products ORDER BY created_at DESC LIMIT 10");
+        $sql = self::$connection->prepare("SELECT *FROM products, manufactures 
+        WHERE products.manu_id=manufactures.manu_id
+        ORDER BY created_at DESC LIMIT 10");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -98,7 +114,10 @@ class Product extends Db
     }  
     public function laySanPhamNoiBat()
     {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE feature = 1 ");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products, manufactures 
+        WHERE feature = 1
+        AND  products.manu_id=manufactures.manu_id");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -107,7 +126,11 @@ class Product extends Db
     
     public function layDienThoaiMoiNhat()
     {
-        $sql = self::$connection->prepare("SELECT *FROM products WHERE type_id=1 ORDER BY created_at DESC LIMIT 10");
+        $sql = self::$connection->prepare("SELECT *FROM products, manufactures 
+        WHERE type_id=1
+        AND  products.manu_id=manufactures.manu_id
+        ORDER BY created_at 
+        DESC LIMIT 10");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -115,7 +138,11 @@ class Product extends Db
     } 
     public function layLapTopMoiNhat()
     {
-        $sql = self::$connection->prepare("SELECT *FROM products WHERE type_id=2 ORDER BY created_at DESC LIMIT 10");
+        $sql = self::$connection->prepare("SELECT *FROM products, manufactures 
+        WHERE type_id=2
+        AND  products.manu_id=manufactures.manu_id 
+        ORDER BY created_at 
+        DESC LIMIT 10");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -123,7 +150,11 @@ class Product extends Db
     }  
     public function layLoaMoiNhat()
     {
-        $sql = self::$connection->prepare("SELECT *FROM products WHERE type_id=3 ORDER BY created_at DESC LIMIT 10");
+        $sql = self::$connection->prepare("SELECT *FROM products, manufactures  
+        WHERE type_id=3 
+        AND  products.manu_id=manufactures.manu_id
+        ORDER BY created_at 
+        DESC LIMIT 10");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -131,7 +162,10 @@ class Product extends Db
     }  
     public function layDienThoai()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`= 1 ");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM `products`, manufactures  
+        WHERE `type_id`= 1 
+        AND products.manu_id=manufactures.manu_id ");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -139,7 +173,10 @@ class Product extends Db
     }  
     public function layLapTop()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`= 2");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM `products`, manufactures 
+        WHERE `type_id`= 2
+        AND products.manu_id=manufactures.manu_id ");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -147,7 +184,10 @@ class Product extends Db
     }  
     public function layLoa()
     {
-        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`= 3");
+        $sql = self::$connection->prepare("SELECT * 
+        FROM `products`, manufactures 
+        WHERE `type_id`= 3
+        AND products.manu_id=manufactures.manu_id ");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
