@@ -38,26 +38,3 @@
   color: #ffffff;
   text-decoration: none;
 }
-/*chuyển đổi vị trí của class bar khi người dùng hover vào các con số*/
-.flex ul li:hover:nth-of-type(2) ~ .bar {
-  left: 13%;
-}
-.flex ul li:hover:nth-of-type(3) ~ .bar {
-  left: 25.3%;
-}
-.flex ul li:hover:nth-of-type(4) ~ .bar {
-  left: 60%;
-}
-.flex ul li:hover:nth-of-type(5) ~ .bar {
-  left: 80%;
-}
-/*thiết lập style cho class bar*/
-.flex ul .bar {
-  width: 133px;
-  background-color: #ffef0e;
-  height: 5px;
-  position: absolute;
-  left: 8px;
-  bottom: 0;
-  transition: 0.3s ease;
-}

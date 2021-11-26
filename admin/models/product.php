@@ -6,6 +6,7 @@ class Product extends Db{
         FROM products,manufactures,protypes
         WHERE products.manu_id=manufactures.manu_id
         AND products.type_id=protypes.type_id
+        ORDER BY products.id DESC
         ");
         $sql->execute(); //return an object
         $items = array();
@@ -19,6 +20,7 @@ class Product extends Db{
         FROM products,manufactures,protypes
         WHERE products.manu_id=manufactures.manu_id
         AND products.type_id=protypes.type_id
+        ORDER BY products.id DESC
         LIMIT ?, ?");
         $sql->bind_param("ii",$fristLink, $perPage);
         $sql->execute(); //return an object
