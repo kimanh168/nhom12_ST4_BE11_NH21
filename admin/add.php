@@ -14,10 +14,11 @@ if(isset($_POST['submit'])){
     $description = $_POST['description'];
     $feature = $_POST['feature'];
 
-    $product -> addProducts($name,$manu_id,$type_id,$price,$image,$description,$feature); 
+    $product -> addProduct($name,$manu_id,$type_id,$price,$image,$description,$feature); 
     $target_dir = "../img/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"],$target_file);
+   
 }
 header('location:products.php');
 ?>

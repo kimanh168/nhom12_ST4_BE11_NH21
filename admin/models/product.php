@@ -6,31 +6,14 @@ class Product extends Db{
         FROM products,manufactures,protypes
         WHERE products.manu_id=manufactures.manu_id
         AND products.type_id=protypes.type_id
-        ORDER BY 'id' DESC");
+        ORDER BY products.id DESC");
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
 
-    public function layLoai()
-    {
-        $sql = self::$connection->prepare("SELECT * FROM `manufactures`");
-        $sql->execute(); //return an object
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items; //return an array
-    }  
-    public function layHang()
-    {
-        $sql = self::$connection->prepare("SELECT * FROM `protypes`");
-        $sql->execute(); //return an object
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items; //return an array
-    }  
-
-    public function addProducts($name,$manu_id,$type_id,$price,$image,$description,$feature)
+    public function addProduct($name,$manu_id,$type_id,$price,$image,$description,$feature)
     {
         $sql = self::$connection->prepare("INSERT 
         INTO `products`(`name`, `manu_id`, `type_id`, `price`, `image`, `description`, `feature`) 
@@ -40,8 +23,8 @@ class Product extends Db{
     }
     public function deleteProduct($id)
     {
-        $sql = self::$connection->prepare("DELETE FROM `products` WHERE `id`='$id'");
-        $sql->execute();
-        return $sql; 
-    }  
+        $sql = self::$connection->prepare("DELETE FROM `products` WHERE `id`=?");
+        $sql->bind_param("i",$id);
+        return  $sql->execute();
+    } 
 }

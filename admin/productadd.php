@@ -1,4 +1,5 @@
 <?php 
+$page = 'productadd';
 include "header.php" ;
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -44,7 +45,7 @@ include "header.php" ;
                 <select id="inputManu" name="manu" class="form-control custom-select">
                   <option selected disabled>Select one</option>
                   <?php 
-                  $manu = $product ->layLoai(); 
+                  $manu = $manufacture ->getAllManufacture(); 
                   foreach ($manu as $value):
                   ?>
                   <option value="<?php echo $value['manu_id'] ?>"><?php echo $value['manu_name'] ?></option>
@@ -56,7 +57,7 @@ include "header.php" ;
                 <select id="inputType" name="type" class="form-control custom-select">
                   <option selected disabled>Select one</option>
                   <?php 
-                  $type = $product ->layHang(); 
+                  $type = $protype ->getAllProtype(); 
                   foreach ($type as $value):
                   ?>
                   <option value="<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></option>
