@@ -1,57 +1,4 @@
 <?php include "header.php" ?>
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<!-- shop -->
-					<div class="col-md-4 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/shop01.png" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Laptop<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-4 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/shop03.png" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Accessories<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-4 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/shop02.png" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Cameras<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
 
 		<!-- SECTION -->
 		<div class="section">
@@ -102,7 +49,7 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" ><a href="addcart.php?id=<?php echo $value['id'] ?>"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
 											</div>
 										</div>
 										<!-- /product -->
@@ -479,7 +426,7 @@
 									<div class="product-body">
 										<p class="product-category"><?php echo $value['manu_name'] ?></p>
 										<h3 class="product-name"><a href="#"><?php echo $value['name']?></a></h3>
-										<h4 class="product-price"><?php echo $value['price']?></h4>
+										<h4 class="product-price"><?php echo number_format($value['price'])?></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -506,7 +453,7 @@
 									<div class="product-body">
 										<p class="product-category"><?php echo $value['manu_name'] ?></p>
 										<h3 class="product-name"><a href="#"><?php echo $value['name']?></a></h3>
-										<h4 class="product-price"><?php echo $value['price']?></h4>
+										<h4 class="product-price"><?php echo number_format($value['price'])?></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -536,7 +483,7 @@
 									<div class="product-body">
 										<p class="product-category"><?php echo $value['manu_name'] ?></p>
 										<h3 class="product-name"><a href="#"><?php echo $value['name']?></a></h3>
-										<h4 class="product-price"><?php echo $value['price']?></h4>
+										<h4 class="product-price"><?php echo number_format($value['price'])?></h4>
 									</div>
 								</div>
 								<!-- /product widget -->

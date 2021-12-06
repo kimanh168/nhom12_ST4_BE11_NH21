@@ -95,11 +95,6 @@ $layLoa=$product->layLoa();
 						<div class="col-md-6">
 							<div class="header-search">
 								<form method = "get" action = "result.php">
-									<select class="input-select">
-										<option value="0">All Categories</option>
-										<option value="1">Category 01</option>
-										<option value="1">Category 02</option>
-									</select>
 									<input class="input" placeholder="Search here" name = "keyword">
 									<button type = "submit" class="search-btn">Search</button>
 								</form>
@@ -156,8 +151,8 @@ $layLoa=$product->layLoa();
 											<h5>SUBTOTAL: $2940.00</h5>
 										</div>
 										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+											<a href="listcart.php">View Cart</a>
+											<a href="checkout.php">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>

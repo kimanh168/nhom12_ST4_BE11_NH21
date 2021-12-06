@@ -253,12 +253,6 @@ $manufacture = new Manufacture;
                 </a>
               </li>
               <li class="nav-item">
-                <a href="products.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Product Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="manufactureadd.php" class="nav-link <?php if($page == 'manufactureadd'){echo 'active';}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Manufacture </p>

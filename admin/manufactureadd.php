@@ -48,8 +48,7 @@ include "header.php" ;
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="products.php" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right" name="submit" >
+          <input type="submit" value="Create new Manufacture" class="btn btn-success float-right" name="submit" >
         </div>
       </div>
       </form>
