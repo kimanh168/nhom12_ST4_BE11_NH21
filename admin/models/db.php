@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['user'])){
+if(!isset($_SESSION['user'])){
     header('location:../login/index.php');
 }
 class Db
@@ -13,5 +13,5 @@ class Db
     self::$connection->set_charset(DB_CHARSET);
     }
     return self::$connection;
-}
+    }
 }

@@ -162,6 +162,7 @@ $manufacture = new Manufacture;
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
+        <a href="logout.php">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">

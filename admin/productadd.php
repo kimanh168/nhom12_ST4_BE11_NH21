@@ -38,7 +38,7 @@ include "header.php" ;
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Tên Sản Phẩm</label>
-                <input type="text" name="name" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm">
+                <input type="text" name="name" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" require>
               </div>
               <div class="form-group">
                 <label for="inputManu">Hãng Sản Xuất</label>
@@ -66,7 +66,7 @@ include "header.php" ;
               </div>
               <div class="form-group">
                 <label for="inputPrice">Giá Sản Phẩm</label>
-                <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm">
+                <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm" require>
               </div>
               <div class="form-group">
                 <label for="inputImg">Ảnh Sản Phẩm</label>
