@@ -51,7 +51,7 @@
                         <h4 class="title">Bài Viết Đánh Giá</h4></br>
                         <p><?php echo $value['description'] ?></p>
 						</div>
-						<a href="#" class="primary-btn order-submit"><i class="fa fa-shopping-cart"></i> add to cart</a>
+						<a href="addcart.php?id=<?php echo $value['id'] ?>" class="primary-btn order-submit"><i class="fa fa-shopping-cart"></i> add to cart</a>
 					</div>
 					<!-- /Order Details -->
 				</div>
