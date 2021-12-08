@@ -49,9 +49,6 @@ $manufacture = new Manufacture;
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index.php" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -162,7 +159,6 @@ $manufacture = new Manufacture;
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-        <a href="logout.php">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
