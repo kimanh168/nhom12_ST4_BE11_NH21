@@ -18,6 +18,10 @@ $layLoaMoiNhat=$product->layLoaMoiNhat();
 $layLapTop=$product->layLapTop();
 $layLoa=$product->layLoa();
 ?>
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -67,9 +71,13 @@ $layLoa=$product->layLoa();
 						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><a href="login/index.php"><i class="fa fa-user-o"></i> My Account</a></li>
 						
+					<?php if(isset($_SESSION['user'])):?>
+						<li><i class="fa fa-user-o"></i><a href="#"><?php echo $_SESSION['user'] ?></a></li>
+							<li><a href="login/logout.php">Đăng Xuất</a></li>
+						<?php else: ?>
+							<li><a href="login/index.php"><i class="fa fa-user-o"></i> My Account</a></li>
+						<?php endif ?>
 					</ul>
 				</div>
 			</div>
@@ -114,41 +122,39 @@ $layLoa=$product->layLoa();
 									</a>
 								</div>
 								<!-- /Wishlist -->
-
+								<?php
+									if(isset($_SESSION['cart'])) : 
+									$all_qty = 0;
+									$total_price = 0;
+								?>
 								<!-- Cart -->
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Your Cart</span>
-										<div class="qty">3</div>
 									</a>
 									<div class="cart-dropdown">
+									<?php foreach($_SESSION['cart'] as $key => $val ) : ?>
 										<div class="cart-list">
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="./img/product01.png" alt="">
+													<img src="./img/<?php echo $val['image'] ?>" alt="">
 												</div>
 												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+													<h3 class="product-name"><a href="thongtinsp.php?id=<?php echo $val['id'] ?>"><?php echo $val['name'] ?></a></h3>
+													<h4 class="product-price"><span class="qty"><?php echo $val['qty'] ?>x</span><?php echo number_format($val['price']) ?>đ</h4>
 												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product02.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
+												<a href="delcart.php?id=<?php echo $val['id'] ?>"><button class="delete"><i class="fa fa-close"></i></button></a>
 											</div>
 										</div>
+										<?php
+											$all_qty += $val['qty'];
+    										$total_price += ($val['price']*$val['qty']);
+   										?>
+										<?php endforeach ; ?>
 										<div class="cart-summary">
-											<small>3 Item(s) selected</small>
-											<h5>SUBTOTAL: $2940.00</h5>
+											<small><?php echo $all_qty ?> Item(s) selected</small>
+											<h5>SUBTOTAL: <?php echo number_format($total_price) ?>đ</h5>
 										</div>
 										<div class="cart-btns">
 											<a href="listcart.php">View Cart</a>
@@ -156,6 +162,24 @@ $layLoa=$product->layLoa();
 										</div>
 									</div>
 								</div>
+								<?php else: ?>
+									<div class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+											<i class="fa fa-shopping-cart"></i>
+											<span>Your Cart</span>
+											<div class="qty">0</div>
+										</a>
+										<div class="cart-dropdown">
+											<div class="cart-summary">
+											<small>0 Item(s) selected</small>
+											<h5>SUBTOTAL: 0đ</h5>
+										</div>
+										<div class="cart-btns">
+											<a href="listcart.php">View Cart</a>
+											<a href="checkout.php">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+								<?php endif; ?>
 								<!-- /Cart -->
 
 								<!-- Menu Toogle -->

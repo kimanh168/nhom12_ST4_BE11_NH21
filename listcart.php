@@ -1,10 +1,9 @@
-<?php
-    session_start();
-?>
+<?php include "header.php"; ?>
 <?php
 if(isset($_SESSION['cart'])) : 
+    $total_price = 0;
 ?>
-<?php include "header.php"; ?>
+
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
 			<!-- container -->
@@ -56,7 +55,10 @@ if(isset($_SESSION['cart'])) :
     <button class="btn btn-danger btn-sm" ><a href="delcart.php?id=<?php echo $val['id'] ?>"><i class="fa fa-trash-o"></i></a>
     </button>
    </td>
-  </tr> 
+  </tr>
+  <?php
+    $total_price += ($val['price']*$val['qty']);
+   ?>
   </tbody>
   <?php endforeach ; ?>
   <tfoot> 
@@ -64,8 +66,7 @@ if(isset($_SESSION['cart'])) :
     <td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
     </td> 
     <td colspan="2" class="hidden-xs"> </td> 
-    <td class="hidden-xs text-center"><strong> đ</strong>
-
+    <td class="hidden-xs text-center"><strong><?php echo number_format($total_price)?> đ</strong>
     </td> 
     <td><a href="checkout.php" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
     </td> 
@@ -74,6 +75,6 @@ if(isset($_SESSION['cart'])) :
  </table>
 </div>
 <?php else :?>
-    <p>Không tồn tại giỏ hàng</p>
+    <h3 class="text-center">Your cart is empty!</h3>
 <?php endif; ?>
 <?php include "footer.html" ?>

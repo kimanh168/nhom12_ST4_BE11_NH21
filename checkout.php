@@ -1,10 +1,8 @@
-<?php
-    session_start();
-?>
+<?php include "header.php"; ?>
 <?php
 if(isset($_SESSION['cart'])) : 
+	$total_price = 0;
 ?>
-<?php include "header.php"; ?>
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
 			<!-- container -->
@@ -136,17 +134,20 @@ if(isset($_SESSION['cart'])) :
 								<div><strong>PRODUCT</strong></div>
 								<div><strong>TOTAL</strong></div>
 							</div>
-							<?php foreach($_SESSION['cart'] as $key => $val ) :?>
+							<?php foreach($_SESSION['cart'] as $key => $val ) : ?>
 							<div class="order-products">
 								<div class="order-col">
 									<div><?php echo $val['qty'] ?>x <?php echo $val['name'] ?></div>
 									<div><?php echo number_format($val['price']) ?>đ</div>
 								</div>
 							</div>
+							<?php
+    							$total_price += ($val['price']*$val['qty']);
+   							?>
 							<?php endforeach ; ?>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">$2940.00</strong></div>
+								<div><strong class="order-total"><?php echo number_format($total_price)?>đ</strong></div>
 							</div>
 						</div>
 						<div class="input-checkbox">

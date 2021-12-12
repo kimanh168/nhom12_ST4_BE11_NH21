@@ -1,25 +1,6 @@
 <?php
 include "header.php"; ?>
-		<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">All Categories</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li class="active">Headphones (227,490 Results)</li>
-						</ul>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /BREADCRUMB -->
+
 
 		<!-- SECTION -->
 		<div class="section">
@@ -93,26 +74,6 @@ include "header.php"; ?>
 
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Price</h3>
-							<div class="price-filter">
-								<div id="price-slider"></div>
-								<div class="input-number price-min">
-									<input id="price-min" type="number">
-									<span class="qty-up">+</span>
-									<span class="qty-down">-</span>
-								</div>
-								<span>-</span>
-								<div class="input-number price-max">
-									<input id="price-max" type="number">
-									<span class="qty-up">+</span>
-									<span class="qty-down">-</span>
-								</div>
-							</div>
-						</div>
-						<!-- /aside Widget -->
-
-						<!-- aside Widget -->
-						<div class="aside">
 							<h3 class="aside-title">Brand</h3>
 							<div class="checkbox-filter">
 								<div class="input-checkbox">
@@ -162,44 +123,6 @@ include "header.php"; ?>
 										SONY
 										<small>(755)</small>
 									</label>
-								</div>
-							</div>
-						</div>
-						<!-- /aside Widget -->
-
-						<!-- aside Widget -->
-						<div class="aside">
-							<h3 class="aside-title">Top selling</h3>
-							<div class="product-widget">
-								<div class="product-img">
-									<img src="./img/product01.png" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Category</p>
-									<h3 class="product-name"><a href="#">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
-
-							<div class="product-widget">
-								<div class="product-img">
-									<img src="./img/product02.png" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Category</p>
-									<h3 class="product-name"><a href="#">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
-
-							<div class="product-widget">
-								<div class="product-img">
-									<img src="./img/product03.png" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Category</p>
-									<h3 class="product-name"><a href="#">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 								</div>
 							</div>
 						</div>
@@ -280,7 +203,7 @@ include "header.php"; ?>
 										</div>
 									</div>
 									<div class="add-to-cart">
-									<button class="add-to-cart-btn" ><a href="addcart.php?id=<?php echo $value['id'] ?>"><i class="fa fa-shopping-cart"></i> add to cart</a></button>
+									<a href="addcart.php?id=<?php echo $value['id'] ?>"><button class="add-to-cart-btn" ><i class="fa fa-shopping-cart"></i> add to cart</button></a>
 									</div>
 								</div>
 							</div>
@@ -291,7 +214,7 @@ include "header.php"; ?>
 
 						<!-- store bottom filter -->
 						<div class="store-filter clearfix">
-							<span class="store-qty">Showing 20-100 products</span>
+							<span class="store-qty">Showing 1-3 products</span>
 							<ul class="store-pagination">
                             <?php echo $product->paginate($url, $total, $perPage, $page); ?>
 								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
