@@ -42,8 +42,7 @@ if(isset($_SESSION['cart'])) :
     <div class="col-sm-2 hidden-xs"><img src="./img/<?php echo $val['image'] ?>" style="width: 70px" alt="">
      </div> 
      <div class="col-sm-10"> 
-      <h4 class="nomargin"><?php echo $val['name'] ?></h4> 
-      <p><?php echo $val['description'] ?></p> 
+      <h4 class="nomargin"><?php echo $val['name'] ?></h4>  
      </div> 
     </div> 
    </td> 

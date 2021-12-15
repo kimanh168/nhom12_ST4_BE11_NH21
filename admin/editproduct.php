@@ -84,7 +84,7 @@
               </div>
               <div class="form-group">
                 <label for="inputDescription">Mô Tả</label>
-                <textarea id="inputDescription" name="description" class="form-control" rows="4"><?php echo $value['description'] ?></textarea>
+                <textarea id="summernote" name="description" class="form-control" rows="4"><?php echo $value['description'] ?></textarea>
               </div>
               <div class="form-group">
                 <label >Nổi Bật</label>

@@ -2,6 +2,7 @@
 $page = 'productadd';
 include "header.php" ;
 ?>
+  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -66,7 +67,7 @@ include "header.php" ;
               </div>
               <div class="form-group">
                 <label for="inputPrice">Giá Sản Phẩm</label>
-                <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm" require>
+                <input type="number" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm" require>
               </div>
               <div class="form-group">
                 <label for="inputImg">Ảnh Sản Phẩm</label>
@@ -74,7 +75,7 @@ include "header.php" ;
               </div>
               <div class="form-group">
                 <label for="inputDescription">Mô Tả</label>
-                <textarea id="inputDescription" name="description" class="form-control" rows="4"></textarea>
+                <textarea id="summernote" name="description" class="form-control" rows="6"></textarea>
               </div>
               <div class="form-group">
                 <label >Nổi Bật</label>

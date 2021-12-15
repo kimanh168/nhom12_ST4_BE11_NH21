@@ -3,8 +3,9 @@
 if(isset($_SESSION['cart'])) : 
 	$total_price = 0;
 ?>
-		<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
+<body>
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb" class="section">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
@@ -27,6 +28,7 @@ if(isset($_SESSION['cart'])) :
 		<div class="section">
 			<!-- container -->
 			<div class="container">
+			<form action="addHoaDon.php" method="POST" roles="form" enctype="multipart/form-data">      
 				<!-- row -->
 				<div class="row">
 
@@ -36,7 +38,6 @@ if(isset($_SESSION['cart'])) :
 							<div class="section-title">
 								<h3 class="title">Billing address</h3>
 							</div>
-							
 							<div class="form-group">
 								<input class="input" type="text" name="fullname" placeholder="Full Name">
 							</div>
@@ -47,16 +48,7 @@ if(isset($_SESSION['cart'])) :
 								<input class="input" type="text" name="address" placeholder="Address">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
+								<input class="input" type="tel" name="phone" placeholder="Telephone">
 							</div>
 						</div>
 						<!-- /Billing Details -->
@@ -67,32 +59,23 @@ if(isset($_SESSION['cart'])) :
 								<h3 class="title">Shiping address</h3>
 							</div>
 							<div class="input-checkbox">
-								<input type="checkbox" id="shiping-address">
+								<input type="checkbox" id="shiping-address" name="shiping-address">
 								<label for="shiping-address">
 									<span></span>
 									Ship to a diffrent address?
 								</label>
 								<div class="caption">
 									<div class="form-group">
-										<input class="input" type="text" name="first-name" placeholder="First Name">
+										<input class="input" type="text" name="fullnamenh" placeholder="Full Name">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="last-name" placeholder="Last Name">
+										<input class="input" type="email" name="emailnh" placeholder="Email">
 									</div>
 									<div class="form-group">
-										<input class="input" type="email" name="email" placeholder="Email">
+										<input class="input" type="text" name="addressnh" placeholder="Address">
 									</div>
 									<div class="form-group">
-										<input class="input" type="text" name="address" placeholder="Address">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="city" placeholder="City">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="country" placeholder="Country">
-									</div>
-									<div class="form-group">
-										<input class="input" type="tel" name="tel" placeholder="Telephone">
+										<input class="input" type="tel" name="phonenh" placeholder="Telephone">
 									</div>
 								</div>
 							</div>
@@ -101,7 +84,7 @@ if(isset($_SESSION['cart'])) :
 
 						<!-- Order notes -->
 						<div class="order-notes">
-							<textarea class="input" placeholder="Order Notes"></textarea>
+							<textarea value=" " name="note" class="input" placeholder="Order Notes"></textarea>
 						</div>
 						<!-- /Order notes -->
 					</div>
@@ -139,15 +122,18 @@ if(isset($_SESSION['cart'])) :
 								I've read and accept the <a href="#">terms & conditions</a>
 							</label>
 						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+						<input type="submit" value="Place order"  name="submit" class="primary-btn order-submit">
 					</div>
 					<!-- /Order Details -->
 				</div>
 				<!-- /row -->
+			</form>
 			</div>
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
+</body>
+
 <?php else :?>
 		<h3 class="text-center">Your checkout is empty!</h3>
 <?php endif; ?>
