@@ -3,9 +3,11 @@ require "config.php";
 require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
+require "models/wishlist.php";
 //
 $product = new Product;
 $protype = new Protype;
+$wishlist = new Wishlist;
 //
 
 $laySanPhamMoiNhat=$product->laySanPhamMoiNhat();
@@ -115,10 +117,9 @@ $layLoa=$product->layLoa();
 							<div class="header-ctn">
 								<!-- Wishlist -->
 								<div>
-									<a href="#">
+									<a href="wishlist.php">
 										<i class="fa fa-heart-o"></i>
 										<span>Your Wishlist</span>
-										<div class="qty">2</div>
 									</a>
 								</div>
 								<!-- /Wishlist -->
@@ -167,7 +168,6 @@ $layLoa=$product->layLoa();
 										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 											<i class="fa fa-shopping-cart"></i>
 											<span>Your Cart</span>
-											<div class="qty">0</div>
 										</a>
 										<div class="cart-dropdown">
 											<div class="cart-summary">
@@ -211,12 +211,12 @@ $layLoa=$product->layLoa();
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="index.php">Home</a></li>
-						<?php
+							<?php
 							$getAllProtype = $protype -> getAllProtype();
 							foreach($getAllProtype as $value):
-						?>
-						<li><a href="products.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a></li>
-						<?php endforeach; ?>		
+							?>
+						<li><a href="products.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a></li>	
+						<?php endforeach; ?>
 					</ul>
 					<!-- /NAV -->
 				</div>

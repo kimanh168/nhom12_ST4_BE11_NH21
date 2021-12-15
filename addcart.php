@@ -1,6 +1,7 @@
 <?php
     session_start();
     $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
+    $sl = isset($_GET['sl']);
 ?>
 <?php
 require "config.php";
@@ -21,6 +22,9 @@ $product = new Product;
     {
         if(isset($_SESSION['cart'][$id])){
             $_SESSION['cart'][$id]['qty'] += 1;
+        }
+        else if(isset($_SESSION['cart'][$id]) && isset($_POST['sl'])){
+            $_SESSION['cart'][$id]['qty'] += $sl;
         }
         else{
             $_SESSION['cart'][$id]['qty'] = 1;
@@ -47,7 +51,7 @@ $product = new Product;
 	endif;
 		endforeach;
 	endif;
-    header("Location: listcart.php");
+    header("location: listcart.php");
 ?>
 
     

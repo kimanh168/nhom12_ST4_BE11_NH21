@@ -13,6 +13,10 @@ if  (isset($_POST['submit'])) {
     }else {
         if($user -> checkLoginCustomer($username, $password)){
             $_SESSION['user'] = $username;
+            if(isset($_POST['remember'])){
+               setcookie('user',$username,time()+3600,'/','',0,0);
+               setcookie('pass',$password,time()+3600,'/','',0,0);
+              } 
             header('location:../index.php');
         }
         else{

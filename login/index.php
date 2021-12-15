@@ -31,19 +31,19 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input name="username" type="text" class="form-control" placeholder="username">
+						<input name="username" type="text" class="form-control" placeholder="username" value="<?php if(isset($_COOKIE['user'])) echo $_COOKIE['user'];?>">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input name="password" type="password" class="form-control" placeholder="password">
+						<input name="password" type="password" class="form-control" placeholder="password" value="<?php if(isset($_COOKIE['pass'])) echo $_COOKIE['pass'];?>">
 						<div class="input-group-prepend" id="eye">
                     		<span class="input-group-text"><i class="far fa-eye"></i></span>
                 		</div>
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
+						<input type="checkbox" name="remember" checked = "check">Remember Me
 					</div>
 					<div class="form-group">
 						<input name="submit" type="submit" value="Login" class="btn float-right login_btn">

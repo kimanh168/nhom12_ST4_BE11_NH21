@@ -48,12 +48,14 @@ if(isset($_SESSION['cart'])) :
     </div> 
    </td> 
    <td data-th="Price"><?php echo number_format($val['price'])?> đ</td> 
-   <td data-th="Quantity"><input class="form-control text-center" value="<?php echo $val['qty'] ?>" >
+   <td data-th="Quantity"><input type="number" class="form-control text-center" name="sl_<?php echo $key ?>" id="sl_<?php echo $key ?>" value="<?php echo $val['qty'] ?>" onclick="updateItem(<?php echo $key ?>)" >
    </td> 
    <td data-th="Subtotal" class="text-center"><?php echo number_format($val['cost'])?> đ</td> 
    <td class="actions" data-th="">
-    <button class="btn btn-danger btn-sm" ><a href="delcart.php?id=<?php echo $val['id'] ?>"><i class="fa fa-trash-o"></i></a>
-    </button>
+   <a href="updatecart.php"><button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
+   </button></a>
+    <a href="delcart.php?id=<?php echo $val['id'] ?>"><button class="btn btn-danger btn-sm" ><i class="fa fa-trash-o"></i>
+    </button></a>
    </td>
   </tr>
   <?php
@@ -73,6 +75,19 @@ if(isset($_SESSION['cart'])) :
    </tr> 
   </tfoot> 
  </table>
+ <script>
+     function updateItem(id){
+        sl = $("#sl_"+id).val();
+        if(sl < 0 ){
+            alert("Số lượng phải lớn hơn 0");
+        }
+        else{
+           $.post("updatecart.php",{"id":id,"sl":sl},function(data){
+            location.reload();
+           });
+        }
+     }
+ </script>
 </div>
 <?php else :?>
     <h3 class="text-center">Your cart is empty!</h3>

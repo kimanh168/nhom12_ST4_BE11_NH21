@@ -36,11 +36,9 @@ if(isset($_SESSION['cart'])) :
 							<div class="section-title">
 								<h3 class="title">Billing address</h3>
 							</div>
+							
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
+								<input class="input" type="text" name="fullname" placeholder="Full Name">
 							</div>
 							<div class="form-group">
 								<input class="input" type="email" name="email" placeholder="Email">
@@ -59,19 +57,6 @@ if(isset($_SESSION['cart'])) :
 							</div>
 							<div class="form-group">
 								<input class="input" type="tel" name="tel" placeholder="Telephone">
-							</div>
-							<div class="form-group">
-								<div class="input-checkbox">
-									<input type="checkbox" id="create-account">
-									<label for="create-account">
-										<span></span>
-										Create Account?
-									</label>
-									<div class="caption">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-										<input class="input" type="password" name="password" placeholder="Enter Your Password">
-									</div>
-								</div>
 							</div>
 						</div>
 						<!-- /Billing Details -->
@@ -105,9 +90,6 @@ if(isset($_SESSION['cart'])) :
 									</div>
 									<div class="form-group">
 										<input class="input" type="text" name="country" placeholder="Country">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
 									</div>
 									<div class="form-group">
 										<input class="input" type="tel" name="tel" placeholder="Telephone">
@@ -166,8 +148,8 @@ if(isset($_SESSION['cart'])) :
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-		<?php else :?>
-    <p>Không tồn tại giỏ hàng</p>
+<?php else :?>
+		<h3 class="text-center">Your checkout is empty!</h3>
 <?php endif; ?>
 <?php include "footer.html" ?>
 
