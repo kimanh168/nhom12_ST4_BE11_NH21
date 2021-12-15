@@ -61,11 +61,11 @@ $user=new User();
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
-          <form class="form-inline">
+          <form class="form-inline"  method = "get" action = "result.php">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name = "keyword">
               <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
+									<button type= "submit" class="btn btn-navbar" type="submit">            
                   <i class="fas fa-search"></i>
                 </button>
                 <button class="btn btn-navbar" type="button" data-widget="navbar-search">

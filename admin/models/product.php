@@ -84,6 +84,49 @@ class Product extends Db{
      
         return $sql->execute(); //return an object
     }
-    
+    public function search5($keyword,  $page, $perPage)
+    {
+        $fristLink = ($page -1) * $perPage;
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products , manufactures, protypes
+        WHERE `name` LIKE ?
+        AND products.manu_id=manufactures.manu_id
+        AND products.type_id=protypes.type_id
+        LIMIT ?, ?");
+        $keyword = "%$keyword%";
+        $sql->bind_param("sii", $keyword,$fristLink, $perPage);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    public function search($keyword)
+    {
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products, manufactures, protypes 
+        WHERE `name` LIKE ?
+        AND products.manu_id=manufactures.manu_id
+        AND products.type_id=protypes.type_id ");
+        $keyword = "%$keyword%";
+        $sql->bind_param("s", $keyword);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    function paginateSearch($url, $total, $perPage,$page)
+    {
+        $totalLinks = ceil($total/$perPage);
+        $link ="";
+       for($j=1; $j <= $totalLinks ; $j++)
+        {
+           if($j == $page){
+                 $link = $link."<li  class='active' > <a  href='$url&page=$j'> $j </a></li>";
+           }else{
+               $link = $link."<li> <a  href='$url&page=$j'> $j </a></li>";
+           }
+        }
+        return $link;
+    }
     
 }
