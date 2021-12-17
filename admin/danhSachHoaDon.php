@@ -10,12 +10,12 @@ include "header.php" ;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>User Registrations</h1>
+            <h1>Danh Sách Hóa Đơn</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">User Registrations</li>
+              <li class="breadcrumb-item active">Danh Sách Hóa Đơn</li>
             </ol>
           </div>
         </div>
@@ -28,7 +28,7 @@ include "header.php" ;
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Users</h3>
+          <h3 class="card-title">Hóa Đơn</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -43,45 +43,50 @@ include "header.php" ;
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">User_ID</th>
-                      <th style="width: 15%">User_Name</th>
-                      <th style="width: 20%">Name</th>
+                      <th style="width: 1%">ID_HĐ</th>
+                      <th style="width: 10%">Thời Gian</th>
+                      <th style="width: 10%">User Name</th>
+                      <th style="width: 20%">Full Name</th>
                       <th style="width: 20%">Address</th>
                       <th style="width: 20%">Email</th>
-                      <th style="width: 8%">Phone</th>
+                      <th style="width: 10%">Phone</th>
                   </tr>
               </thead>
               <tbody>
                   <?php 
 
-                    $getAllusers = $user -> getAllusers();
+                    $getAllhoadon = $hoadon -> getAllHoaDon();
                     // hiển thị 10 sản phẩm trên 1 trang
                     $perPage = 10; 				
                     // Lấy số trang trên thanh địa chỉ
                     $page = isset($_GET['page'])?$_GET['page']:1; 			
                     // Tính tổng số dòng, ví dụ kết quả là 18
-                    $total = count($getAllusers); 					
+                    $total = count($getAllhoadon); 					
                     // lấy đường dẫn đến file hiện hành
                     $url = $_SERVER['PHP_SELF'];	
                     
-                    $get10User = $user -> get10User($page,$perPage);
-                    foreach($get10User as $value):
+                    $get10hoadon = $hoadon -> get10HoaDon($page,$perPage);
+                    foreach($get10hoadon as $value):
                     
                   ?>
                   <tr>
-                      <td><?php echo $value['user_id'] ?></td>
-                      <td>
-                          <a><?php echo $value['username'] ?></a>
-                      </td>
+                      <td><?php echo $value['idHD'] ?></td>
+                      <td class="project_progress"><?php echo $value['ThoiDiemDatHang'] ?></td>
+                      <td class="project_progress"><?php echo $value['user_name'] ?></td>
                       <td class="project_progress"><?php echo $value['fullname'] ?></td>
-                      <td class="project_progress"><?php echo $value['address'] ?></td>
+                      <td class="project_progress"><?php echo $value['diachi'] ?></td>
                       <td class="project_progress"><?php echo $value['email'] ?></td>
-                      <td class="project_progress"><?php echo $value['phone'] ?></td>
+                      <td class="project_progress"><?php echo $value['dienthoai'] ?></td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-danger btn-sm" href="deluser.php?id=<?php echo $value['user_id'] ?>">
+                          <a class="btn btn-danger btn-sm" href="deluser.php?id=<?php echo $value['user_name'] ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
+                          </a>
+                          <a class="btn btn-info btn-sm" href="editproduct.php?id=<?php echo $value['user_name'] ?>">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Detail
                           </a>
                       </td>
                   </tr>

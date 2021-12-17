@@ -4,10 +4,12 @@ require "models/db.php";
 require "models/product.php";
 require "models/protype.php";
 require "models/wishlist.php";
+require "models/hoadon.php";
 //
 $product = new Product;
 $protype = new Protype;
 $wishlist = new Wishlist;
+$hoadon = new HoaDon;
 //
 
 $laySanPhamMoiNhat=$product->laySanPhamMoiNhat();
@@ -19,6 +21,7 @@ $layLapTopMoiNhat=$product->layLapTopMoiNhat();
 $layLoaMoiNhat=$product->layLoaMoiNhat();
 $layLapTop=$product->layLapTop();
 $layLoa=$product->layLoa();
+
 ?>
 <?php
     session_start();
@@ -70,12 +73,12 @@ $layLoa=$product->layLoa();
 					<ul class="header-links pull-left">
 						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+						<li><a ><i class="fa fa-map-marker"></i> 46 Lagi, Bình Thuận, Việt Nam</a></li>
 					</ul>
 					<ul class="header-links pull-right">
 						
 					<?php if(isset($_SESSION['user'])):?>
-						<li><i class="fa fa-user-o"></i><a href="#"><?php echo $_SESSION['user'] ?></a></li>
+							<li><i class="fa fa-user-o"></i><a href="#"><?php echo $_SESSION['user'] ?></a></li>
 							<li><a href="login/logout.php">Đăng Xuất</a></li>
 						<?php else: ?>
 							<li><a href="login/index.php"><i class="fa fa-user-o"></i> My Account</a></li>
@@ -92,7 +95,7 @@ $layLoa=$product->layLoa();
 					<!-- row -->
 					<div class="row">
 						<!-- LOGO -->
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="header-logo">
 								<a href="index.php" class="logo">
 									<img src="./img/logo.png" alt="">
@@ -113,8 +116,16 @@ $layLoa=$product->layLoa();
 						<!-- /SEARCH BAR -->
 
 						<!-- ACCOUNT -->
-						<div class="col-md-3 clearfix">
+						<div class="col-md-4">
 							<div class="header-ctn">
+								<!-- Package -->
+								<div>
+									<a href="shipping.php">
+										<i class="fa fa-truck"></i>
+										<span>Package</span>
+									</a>
+								</div>
+								<!-- /Package -->
 								<!-- Wishlist -->
 								<div>
 									<a href="wishlist.php">
@@ -181,7 +192,7 @@ $layLoa=$product->layLoa();
 									</div>
 								<?php endif; ?>
 								<!-- /Cart -->
-
+								
 								<!-- Menu Toogle -->
 								<div class="menu-toggle">
 									<a href="#">
@@ -210,6 +221,20 @@ $layLoa=$product->layLoa();
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
+					<?php if(isset($_GET['type_id'])):?>
+						<li><a href="index.php">Home</a></li>
+							<?php
+							$getAllProtype = $protype -> getAllProtype();
+							foreach($getAllProtype as $value):
+							?>
+						<?php if($_GET['type_id'] == $value['type_id']) :?>
+							<li class="active"><a href="products.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a></li>	
+						<?php else: ?>
+							<li><a href="products.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a></li>
+						<?php endif;?>
+						<?php endforeach; ?>
+					</ul>
+					<?php else: ?>
 						<li class="active"><a href="index.php">Home</a></li>
 							<?php
 							$getAllProtype = $protype -> getAllProtype();
@@ -217,7 +242,7 @@ $layLoa=$product->layLoa();
 							?>
 						<li><a href="products.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a></li>	
 						<?php endforeach; ?>
-					</ul>
+					<?php endif;?>
 					<!-- /NAV -->
 				</div>
 				<!-- /responsive-nav -->

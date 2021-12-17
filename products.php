@@ -134,26 +134,8 @@ include "header.php"; ?>
 					<div id="store" class="col-md-9">
 						<!-- store top filter -->
 						<div class="store-filter clearfix">
-							<div class="store-sort">
-								<label>
-									Sort By:
-									<select class="input-select">
-										<option value="0">Popular</option>
-										<option value="1">Position</option>
-									</select>
-								</label>
-
-								<label>
-									Show:
-									<select class="input-select">
-										<option value="0">20</option>
-										<option value="1">50</option>
-									</select>
-								</label>
-							</div>
 							<ul class="store-grid">
 								<li class="active"><i class="fa fa-th"></i></li>
-								<li><a href="#"><i class="fa fa-th-list"></i></a></li>
 							</ul>
 						</div>
 						<!-- /store top filter -->
@@ -187,7 +169,7 @@ include "header.php"; ?>
 									</div>
 									<div class="product-body">
 										<p class="product-category"><?php echo $value['manu_name'] ?></p>
-										<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+										<h3 class="product-name"><a href="thongtinsp.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
 										<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>

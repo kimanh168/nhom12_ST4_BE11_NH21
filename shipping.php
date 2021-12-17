@@ -8,10 +8,10 @@ include "header.php";
 				<!-- row -->
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="breadcrumb-header">Danh Sách Yêu Thích</h3>
+						<h3 class="breadcrumb-header">Regular Page</h3>
 						<ul class="breadcrumb-tree">
 							<li><a href="#">Home</a></li>
-							<li class="active">Wish List</li>
+							<li class="active">Shipping</li>
 						</ul>
 					</div>
 				</div>
@@ -20,37 +20,36 @@ include "header.php";
 			<!-- /container -->
 		</div>
 		<!-- /BREADCRUMB -->
-<?php if(isset($_SESSION['user'])): ?>
-<h2 class="text-center">Your Wish</h2>
+    <?php if(isset($_SESSION['user'])): ?>
+<h2 class="text-center">Danh sách đơn hàng đã đặt</h2>
 <div class="container"> 
  <table id="cart" class="table table-hover table-condensed"> 
   <thead> 
    <tr> 
-    <th style="width:50%">Tên sản phẩm</th> 
-    <th style="width:10%">Giá</th> 
-    <th style="width:10%"> </th> 
+    <th style="width:25%">Thời Gian Đặt</th> 
+    <th style="width:25%">Tên Người Nhận</th> 
+    <th style="width:35%">Địa Chỉ Giao</th> 
+    <th style="width:15%">Tổng Cộng</th> 
    </tr> 
   </thead> 
   <tbody><tr> 
-  <?php
+   <?php
+   
    $user_name = $_SESSION['user'];
-   $getWList = $wishlist -> getWishList($_SESSION['user']);
-   foreach ($getWList as $value):
- ?>
-   <td data-th="Product"> 
-    <div class="row">
-    <div class="col-sm-2 hidden-xs"><img src="./img/<?php echo $value['image'] ?>" style="width: 70px" alt="">
-     </div> 
-     <div class="col-sm-10"> 
-      <h4 class="nomargin"><?php echo $value['name'] ?></h4> 
-      <p><?php echo $value['description'] ?></p> 
-     </div> 
-    </div> 
+   $getDSHoaDon = $hoadon -> layHoaDonTheoTen($user_name);
+   foreach ($getDSHoaDon as $value):
+  ?>
+
+   <td><H4><?php echo $value['ThoiDiemDatHang'] ?></H4></td> 
    </td> 
-   <td data-th="Price"><?php echo number_format($value['price'])?> đ</td> 
+   <td><?php echo $value['fullname'] ?></td> 
+   </td> 
+   <td><?php echo $value['diachi'] ?></td> 
+   </td> 
+   <td data-th="Price"><?php echo number_format($value['tongcong'])?> đ</td> 
    </td> 
    <td class="actions" data-th="">
-    <button class="btn btn-danger btn-sm" ><a href="delwish.php?id=<?php echo $value['wish_id'] ?>"><i class="fa fa-trash-o"></i></a>
+    <button class="btn btn-info btn-sm" ><a href="chitiethoadon.php?idHD=<?php echo $value['idHD']?>"><i class="fa fa-edit"></i></a>
     </button>
    </td>
   </tr>
@@ -64,8 +63,8 @@ include "header.php";
    </tr> 
   </tfoot> 
  </table>
-</div>
 <?php else: ?>
   <div style="padding-bottom: 50px"><h2 class="text-center"><a href="login/index.php">Đăng Nhập</a> Trước cái đã bạn</h2></div>
 <?php endif; ?>
+</div>
 <?php include "footer.html" ?>

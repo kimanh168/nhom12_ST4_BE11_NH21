@@ -12,7 +12,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-
+					<form action="addcart.php?id=<?php echo $value['id'] ?>" method="POST" >
 					<div class="col-md-7">
 						<!--  Details -->
 						<div class="billing-details">
@@ -45,15 +45,23 @@
 									<div><strong>Hãng</strong></div>
 									<div><strong><?php  echo $value['manu_name']?></strong></div>
 								</div>
+								<div class="order-col">
+									<div><strong>Số Lượng Mua</strong></div>
+									<div><input name="addqty" type="number" class="form-control" placeholder="Số Lượng" ></div>
+								</div>
+								
 							</div>
 						</div>
 						<div class="payment-method">
                         <h4 class="title">Bài Viết Đánh Giá</h4></br>
                         <p><?php echo $value['description'] ?></p>
 						</div>
-						<a href="addcart.php?id=<?php echo $value['id'] ?>" class="primary-btn order-submit"><i class="fa fa-shopping-cart"></i> add to cart</a>
+						<div style ="padding-left: 150px" class="form-group  order-submit ">
+							<input  name="submit" type="submit" value="add to cart" class="primary-btn ">
+						</div>
 					</div>
 					<!-- /Order Details -->
+					</form>
 				</div>
 				<!-- /row -->
 			</div>

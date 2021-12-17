@@ -11,7 +11,7 @@ if(isset($_SESSION['cart'])) :
 				<!-- row -->
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="breadcrumb-header">Regular Page</h3>
+                    <h3 class="breadcrumb-header">Giỏ Hàng</h3>
 						<ul class="breadcrumb-tree">
 							<li><a href="#">Home</a></li>
 							<li class="active">Cart</li>
@@ -47,7 +47,7 @@ if(isset($_SESSION['cart'])) :
     </div> 
    </td> 
    <td data-th="Price"><?php echo number_format($val['price'])?> đ</td> 
-   <td data-th="Quantity"><input type="number" class="form-control text-center" name="sl_<?php echo $key ?>" id="sl_<?php echo $key ?>" value="<?php echo $val['qty'] ?>" onclick="updateItem(<?php echo $key ?>)" >
+   <td data-th="Quantity"><input type="number" class="form-control text-center" value="<?php echo $val['qty'] ?>" >
    </td> 
    <td data-th="Subtotal" class="text-center"><?php echo number_format($val['cost'])?> đ</td> 
    <td class="actions" data-th="">
@@ -74,21 +74,8 @@ if(isset($_SESSION['cart'])) :
    </tr> 
   </tfoot> 
  </table>
- <script>
-     function updateItem(id){
-        sl = $("#sl_"+id).val();
-        if(sl < 0 ){
-            alert("Số lượng phải lớn hơn 0");
-        }
-        else{
-           $.post("updatecart.php",{"id":id,"sl":sl},function(data){
-            location.reload();
-           });
-        }
-     }
- </script>
 </div>
 <?php else :?>
-    <h3 class="text-center">Your cart is empty!</h3>
+    <h3 style="padding: 50px" class="text-center">Your cart is empty!</h3>
 <?php endif; ?>
 <?php include "footer.html" ?>

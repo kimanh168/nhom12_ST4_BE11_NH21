@@ -42,7 +42,7 @@ if(isset($_SESSION['cart'])) :
 								<input class="input" type="text" name="fullname" placeholder="Full Name">
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="email" name="email" placeholder="Email" >
 							</div>
 							<div class="form-group">
 								<input class="input" type="text" name="address" placeholder="Address">
@@ -52,36 +52,6 @@ if(isset($_SESSION['cart'])) :
 							</div>
 						</div>
 						<!-- /Billing Details -->
-
-						<!-- Shiping Details -->
-						<div class="shiping-details">
-							<div class="section-title">
-								<h3 class="title">Shiping address</h3>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="shiping-address" name="shiping-address">
-								<label for="shiping-address">
-									<span></span>
-									Ship to a diffrent address?
-								</label>
-								<div class="caption">
-									<div class="form-group">
-										<input class="input" type="text" name="fullnamenh" placeholder="Full Name">
-									</div>
-									<div class="form-group">
-										<input class="input" type="email" name="emailnh" placeholder="Email">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="addressnh" placeholder="Address">
-									</div>
-									<div class="form-group">
-										<input class="input" type="tel" name="phonenh" placeholder="Telephone">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- /Shiping Details -->
-
 						<!-- Order notes -->
 						<div class="order-notes">
 							<textarea value=" " name="note" class="input" placeholder="Order Notes"></textarea>
@@ -115,13 +85,13 @@ if(isset($_SESSION['cart'])) :
 								<div><strong class="order-total"><?php echo number_format($total_price)?>đ</strong></div>
 							</div>
 						</div>
-						<div class="input-checkbox">
-							<input type="checkbox" id="terms">
+						
+							<input type="checkbox" name="terms">
 							<label for="terms">
 								<span></span>
-								I've read and accept the <a href="#">terms & conditions</a>
+								I've read and accept the terms & conditions
 							</label>
-						</div>
+						
 						<input type="submit" value="Place order"  name="submit" class="primary-btn order-submit">
 					</div>
 					<!-- /Order Details -->
@@ -135,7 +105,8 @@ if(isset($_SESSION['cart'])) :
 </body>
 
 <?php else :?>
-		<h3 class="text-center">Your checkout is empty!</h3>
+		<h3 style="padding: 50px" class="text-center">Your checkout is empty!</h3>
 <?php endif; ?>
+
 <?php include "footer.html" ?>
 

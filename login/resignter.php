@@ -48,7 +48,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-monument"></i></span>
 						</div>
-						<input name="fullname" type="text" class="form-control" placeholder="Your Name" required pattern="[A-Za-z]{3,}(\s?\w+)+">
+						<input name="fullname" type="text" class="form-control" placeholder="Your Name" required pattern="{3,}(\s?\w+)+">
 						<div class="valid-feedback">Looks good!</div>
                 		<div class="invalid-feedback">Vui lòng nhập họp tên đầy đủ</div>
 					</div>

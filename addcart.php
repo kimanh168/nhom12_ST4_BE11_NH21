@@ -1,13 +1,14 @@
 <?php
     session_start();
     $id = isset($_GET['id']) ? (int)$_GET['id'] : '';
-    $sl = isset($_GET['sl']);
+    if(isset($_POST['addqty'])){
+        $sl = $_POST['addqty'] ;
+    }
 ?>
 <?php
 require "config.php";
 require "models/db.php";
 require "models/product.php";
-require "models/protype.php";
 //
 $product = new Product;
 	
@@ -20,11 +21,11 @@ $product = new Product;
     //b2: kiem tra session:
     if(isset($_SESSION['cart']))
     {
-        if(isset($_SESSION['cart'][$id])){
-            $_SESSION['cart'][$id]['qty'] += 1;
-        }
-        else if(isset($_SESSION['cart'][$id]) && isset($_POST['sl'])){
+        if(isset($_SESSION['cart'][$id]) && isset($_POST['addqty'])){
             $_SESSION['cart'][$id]['qty'] += $sl;
+        }
+        else if(isset($_SESSION['cart'][$id])){
+            $_SESSION['cart'][$id]['qty'] += 1;
         }
         else{
             $_SESSION['cart'][$id]['qty'] = 1;

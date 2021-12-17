@@ -5,11 +5,13 @@ require "models/product.php";
 require "models/protype.php";
 require "models/manufacture.php";
 require "../models/user.php";
+require "../models/hoadon.php";
 //
 $product = new Product;
 $protype = new Protype;
 $manufacture = new Manufacture;
-$user=new User(); 
+$user=new User; 
+$hoadon = new HoaDon;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +126,7 @@ $user=new User();
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item ">
             <a href="index.php" class="nav-link <?php if($page == 'index'){echo 'active';}?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
