@@ -20,7 +20,7 @@ if  (isset($_POST['submit'])) {
             header('location:../index.php');
         }
         else{
-            header('location:index.php');
+            echo '<script language="javascript">alert("Sai tài khoản hoặc mật khẩu"); window.location="index.php";</script>';
         }
     }
 }

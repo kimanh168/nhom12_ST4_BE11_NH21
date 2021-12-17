@@ -6,8 +6,8 @@ require "models/manufacture.php";
 
 $manufacture = new Manufacture;
 
-if(isset($_GET['id'])){
-        $manufacture -> deleteManufacture($_GET['id']);
+if(isset($_GET['manu_id'])){
+        $manufacture -> deleteManufacture($_GET['manu_id']);
         header('location:manufactures.php');
     }
  

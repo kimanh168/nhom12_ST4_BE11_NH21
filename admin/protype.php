@@ -55,12 +55,12 @@
                           <a><?php echo $value['type_name'] ?></a>
                       </td>
                       <td class="project-actions">
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm" href="editprotype.php?type_id=<?php echo $value['type_id'] ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="delete_protype.php?id=<?php echo $value['type_id'] ?>">
+                          <a class="btn btn-danger btn-sm" href="delprotype.php?id=<?php echo $value['type_id'] ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

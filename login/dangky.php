@@ -12,7 +12,7 @@ $address = trim($_POST['address']);
 $email = trim($_POST['mail']);
 $phone = trim($_POST['phone']);
         if ($newuser -> checkUser($username)){
-               echo '<script language="javascript">alert("Tài khoản đã tồn tại!!!"); window.location="resignter.php";</script>';
+               echo '<script language="javascript">alert("Tên tài khoản dẵ được sử dụng!!!"); window.location="resignter.php";</script>';
         }
         else{
                $themuser = $newuser ->  addUser($username,$password,$fullname,$address,$email,$phone);

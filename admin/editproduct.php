@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     <section class="content">
-    <form action="edit.php" method="POST" roles="form" enctype="multipart/form-data">      
+    <form action="productedit.php" method="POST" roles="form" enctype="multipart/form-data">      
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -33,12 +33,12 @@
               </div>
             </div>
             <div class="card-body">
-            <?php 
-                  if(isset($_GET['id'])):
-                  $id1 = $_GET['id'];
-                  $sanpham = $product ->getProductByID($id1); 
-                  foreach ($sanpham as $value):
-            ?>
+              <?php 
+                    if(isset($_GET['id'])):
+                    $id1 = $_GET['id'];
+                    $sanpham = $product ->getProductByID($id1); 
+                    foreach ($sanpham as $value):
+              ?>
               <div class="form-group">
                 <input type="hidden" name="id" value="<?php echo $value['id'] ?>">
               </div>

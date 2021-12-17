@@ -1,125 +1,32 @@
-<?php 
-$page = 'productedit';
-include "header.php" ;
-?>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Sửa Sản Phẩm</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Project Edit</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+<?php
+require "config.php";
+require "models/db.php";
+require "models/product.php";
+$product = new Product;
+//xu ly them:
 
-    <!-- Main content -->
-    <section class="content">
-    <form action="edit.php" method="POST" roles="form" enctype="multipart/form-data">      
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card card-primary">
-            <div class="card-header">        
-              <h3 class="card-title">General</h3>
-              <div class="card-tools ">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputName">Tên Sản Phẩm</label>
-                <input type="text" name="name" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" value= "<?php echo $value['name']?>" require>
-              </div>
-              <div class="form-group">
-                <label for="inputManu">Hãng Sản Xuất</label>
-                <select id="inputManu" name="manu" class="form-control custom-select">
-                  <?php 
-                  $manu = $manufacture ->getAllManufacture(); 
-                  foreach ($manu as $value1):
-                  if($value1['manu_id']==$value['manu_id']):
-                  ?>
-                  <option selected value=<?php echo $value1['manu_id'] ?>><?php echo $value1['manu_name'] ?></option>
-                  <?php else: ?>
-                  <option value=<?php echo $value1 ['manu_id'] ?>><?php echo $value1['manu_name'] ?></option>
-                  <?php endif; endforeach; ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputType">Loại Sản Phẩm</label>
-                <select id="inputType" name="type" class="form-control custom-select">
-                  <option selected disabled>Select one</option>
-                  <?php 
-                  $type = $protype ->getAllProtype(); 
-                  foreach ($type as $value2):
-                  if($value2['type_id']==$value['type_id']):
-                  ?>
-                  <option selected value="<?php echo $value2['type_id'] ?>"><?php echo $value2['type_name'] ?></option>
-                  <?php else: ?>
-                  <option value="<?php echo $value2['type_id'] ?>"><?php echo $value2['type_name'] ?></option>
-                  <?php endif; endforeach; ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputPrice">Giá Sản Phẩm</label>
-                <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Nhập giá sản phẩm" value= "<?php echo $value['price']?>">
-              </div>
-              <div class="form-group">
-                <label for="inputImg">Ảnh Sản Phẩm</label>
-                <input type="file" name="image" id="inputImage" class="form-control"><br>
-                <img src="../img/<?php echo $value['image']?>" style="width: 70px" alt="">
-              </div>
-              <div class="form-group">
-                <label for="inputDescription">Mô Tả</label>
-                <textarea id="inputDescription" name="description" class="form-control" rows="4"> <?php echo $value['description']?></textarea>
-              </div>
-              <div class="form-group">
-                <label >Nổi Bật</label>
-                <div class="radio">
-                  <?php
-                  if($value['feature']== 1 ):
-                  ?>
-                  <label class="px-5">
-                    <input type="radio" name="feature" value="1" checked="checked"> Có
-                </label>
-                <label>
-                    <input type="radio" name="feature" value="0" > Không
-                </label>
-                <?php else: ?>
-                <label class="px-5">
-                    <input type="radio" name="feature" value="1" > Có
-                </label>
-                <label>
-                    <input type="radio" name="feature" value="0" checked="checked"> Không
-                </label>
-                <?php endif;?>
-              </div>
-              <?php endforeach; ?>
-              </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a href="products.php" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Edit Porject" class="btn btn-success float-right" name="submit" >
-        </div>
-      </div>
-    </form>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <?php include "footer.html" ?>
+if(isset($_POST['submit'])){
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $manu_id = $_POST['manu'];
+    $type_id = $_POST['type'];
+    $price = $_POST['price'];
+    if(isset($_FILES)){
+        $image = $_FILES['image']['name'];
+    }
+    else{
+        $image = null;
+    }
+    $description = $_POST['description'];
+    $feature = $_POST['feature'];
+
+    $product -> editProduct($id,$name,$manu_id,$type_id,$price,$image,$description,$feature); 
+    if($image != null){
+        $target_dir = "../img/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"],$target_file);
+    }
+
+}
+header('location: products.php');
+?>

@@ -8,6 +8,18 @@
             $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
             return $items; //return an array
         }
+
+        public function getProtypeByID($type_id)
+        {
+            $sql = self::$connection->prepare("SELECT * 
+            FROM protypes
+            WHERE `type_id` = $type_id");
+            $sql->execute(); //return an object
+            $items = array();
+            $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+            return $items; //return an array
+        } 
+
         public function addProtype($type_name)
         {
             $sql = self::$connection->prepare("INSERT INTO `protypes`(`type_name`)
@@ -22,5 +34,11 @@
             $sql->execute();
             return $sql; 
         }  
+        public function editProtype($type_id,$type_name)
+        {
+            $sql = self::$connection->prepare("UPDATE `protypes` SET `type_name`= ? WHERE `type_id`= ? ");
+            $sql->bind_param("si",$type_name,$type_id);
+            return $sql->execute();
+        }
     }
 ?>
