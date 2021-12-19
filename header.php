@@ -5,12 +5,15 @@ require "models/product.php";
 require "models/protype.php";
 require "models/wishlist.php";
 require "models/hoadon.php";
+require "models/user.php"; 
 //
 $product = new Product;
 $protype = new Protype;
 $wishlist = new Wishlist;
 $hoadon = new HoaDon;
+$user = new User;
 //
+
 
 $laySanPhamMoiNhat=$product->laySanPhamMoiNhat();
 $layDienThoaiMoiNhat=$product->layDienThoaiMoiNhat();
@@ -78,7 +81,7 @@ $layLoa=$product->layLoa();
 					<ul class="header-links pull-right">
 						
 					<?php if(isset($_SESSION['user'])):?>
-							<li><i class="fa fa-user-o"></i><a href="#"><?php echo $_SESSION['user'] ?></a></li>
+							<li><i class="fa fa-user-o"></i><a href="thongtinnguoidung.php"><?php echo $_SESSION['user'] ?></a></li>
 							<li><a href="login/logout.php">Đăng Xuất</a></li>
 						<?php else: ?>
 							<li><a href="login/index.php"><i class="fa fa-user-o"></i> My Account</a></li>

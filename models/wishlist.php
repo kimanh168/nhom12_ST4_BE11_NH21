@@ -39,5 +39,14 @@ class Wishlist extends Db
         $sql->bind_param("i", $wish_id);
         return $sql->execute(); //return an object
     }
+    
+    public function getTopWish()
+    {
+        $sql = self::$connection->prepare("SELECT *,COUNT(*) FROM `wishlist` GROUP BY `sp_id` ORDER BY COUNT(*) DESC");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
 }
 ?>

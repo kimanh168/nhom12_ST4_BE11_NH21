@@ -128,5 +128,14 @@ class Product extends Db{
         }
         return $link;
     }
+
+    public function countProduct()
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `products` ");
+        $sql->execute();
+        //$items = array();
+        $items = $sql->get_result()->num_rows;
+        return $items;
+    }     
     
 }

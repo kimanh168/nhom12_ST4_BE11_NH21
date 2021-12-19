@@ -26,15 +26,16 @@ include "header.php";
  <table id="cart" class="table table-hover table-condensed"> 
   <thead> 
    <tr> 
-    <th style="width:25%">Thời Gian Đặt</th> 
-    <th style="width:25%">Tên Người Nhận</th> 
-    <th style="width:35%">Địa Chỉ Giao</th> 
+    <th style="width:15%">Thời Gian Đặt</th> 
+    <th style="width:20%">Tên Người Nhận</th> 
+    <th style="width:25%">Địa Chỉ Giao</th> 
+    <th style="width:15%">Ghi Chú</th> 
     <th style="width:15%">Tổng Cộng</th> 
    </tr> 
   </thead> 
   <tbody><tr> 
    <?php
-   
+  
    $user_name = $_SESSION['user'];
    $getDSHoaDon = $hoadon -> layHoaDonTheoTen($user_name);
    foreach ($getDSHoaDon as $value):
@@ -45,6 +46,8 @@ include "header.php";
    <td><?php echo $value['fullname'] ?></td> 
    </td> 
    <td><?php echo $value['diachi'] ?></td> 
+   </td> 
+   <td><?php echo $value['ghichucuakhach'] ?></td> 
    </td> 
    <td data-th="Price"><?php echo number_format($value['tongcong'])?> đ</td> 
    </td> 

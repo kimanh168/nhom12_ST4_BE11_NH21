@@ -51,8 +51,6 @@ if(isset($_SESSION['cart'])) :
    </td> 
    <td data-th="Subtotal" class="text-center"><?php echo number_format($val['cost'])?> đ</td> 
    <td class="actions" data-th="">
-   <a href="updatecart.php"><button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-   </button></a>
     <a href="delcart.php?id=<?php echo $val['id'] ?>"><button class="btn btn-danger btn-sm" ><i class="fa fa-trash-o"></i>
     </button></a>
    </td>

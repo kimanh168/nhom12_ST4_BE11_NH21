@@ -62,4 +62,17 @@ class HoaDon extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    
+    public function xoaHoaDon($user_name,$thoigian)
+    {
+        $sql = self::$connection->prepare("DELETE FROM `hoadon` WHERE `ThoiDiemDatHang` = ? AND `user_name` = ?");
+        $sql->bind_param("ss", $thoigian,$user_name);
+        return $sql->execute(); //return an object
+    }
+    public function xoaCTHoaDon($user_name,$thoigian)
+    {
+        $sql = self::$connection->prepare("DELETE FROM `chitiethd` WHERE `ThoiDiemDatHang` = ? AND `user_name` = ?");
+        $sql->bind_param("ss", $thoigian,$user_name);
+        return $sql->execute(); //return an object
+    }
 }

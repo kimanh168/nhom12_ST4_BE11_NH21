@@ -6,12 +6,14 @@ require "models/protype.php";
 require "models/manufacture.php";
 require "../models/user.php";
 require "../models/hoadon.php";
+require "../models/wishlist.php";
 //
 $product = new Product;
 $protype = new Protype;
 $manufacture = new Manufacture;
 $user=new User; 
 $hoadon = new HoaDon;
+$wish = new Wishlist;
 ?>
 <!DOCTYPE html>
 <html lang="en">

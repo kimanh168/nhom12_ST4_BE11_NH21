@@ -32,7 +32,7 @@
 							<h3 class="title">Thông Tin</h3>
 						</div>
 						<div class="order-summary">
-                        <div class="order-col">
+                        	<div class="order-col">
 								<div><strong>Giá</strong></div>
 								<div><strong class="order-total"><?php  echo number_format( $value['price'])?>VND</strong></div>
 							</div>
@@ -47,17 +47,16 @@
 								</div>
 								<div class="order-col">
 									<div><strong>Số Lượng Mua</strong></div>
-									<div><input name="addqty" type="number" class="form-control" placeholder="Số Lượng" ></div>
+									<div><input id="addqty" name="addqty" type="number" class="form-control" placeholder="Số Lượng" ></div>
 								</div>
-								
+								<div style ="padding-left: 150px" class="form-group  order-submit ">
+									<input name="submit" type="submit" value="add to cart" class="primary-btn ">
+								</div>
 							</div>
 						</div>
 						<div class="payment-method">
-                        <h4 class="title">Bài Viết Đánh Giá</h4></br>
+                        <h4 class="title">Mô Tả</h4></br>
                         <p><?php echo $value['description'] ?></p>
-						</div>
-						<div style ="padding-left: 150px" class="form-group  order-submit ">
-							<input  name="submit" type="submit" value="add to cart" class="primary-btn ">
 						</div>
 					</div>
 					<!-- /Order Details -->
@@ -68,5 +67,18 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
+		<script>
+			const form = document.querySelector('form');
+			form.addEventListener('submit', event => {
+				var phone = document.getElementById("addqty").value;
+				if (phone <= 0){
+					alert('Số lượng không được âm!');
+					// submit event detected
+					event.preventDefault();
+					e.preventDefault();
+    				e.stopPropagation()
+				}	
+			})
+		</script>
         <?php endforeach; endif ?>
 <?php include "footer.html" ?>

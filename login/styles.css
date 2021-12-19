@@ -26,17 +26,6 @@ width: auto;
 background-color: rgba(0,0,0,0.5) !important;
 }
 
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #ffffff;
-}
-
-.social_icon span:hover{
-color: rgb(0, 0, 0);
-cursor: pointer;
-}
-
 .card-header h3{
 color: white;
 }
@@ -73,14 +62,14 @@ margin-right: 5px;
 }
 
 .login_btn{
-color: black;
-background-color: rgb(252, 44, 44) !important;
+color: rgb(255, 246, 246) ;
+background-color: rgb(252, 44, 44) ;
 width: 100px;
 }
 
 .login_btn:hover{
-color: black;
-background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255) ;
 }
 
 .links{

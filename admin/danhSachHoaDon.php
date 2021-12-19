@@ -10,12 +10,12 @@ include "header.php" ;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Danh Sách Hóa Đơn</h1>
+            <h1>Danh Sách Đơn Đặt Hàng</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">Danh Sách Hóa Đơn</li>
+              <li class="breadcrumb-item active">Danh Sách Đơn Đặt Hàng</li>
             </ol>
           </div>
         </div>
@@ -28,7 +28,7 @@ include "header.php" ;
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Hóa Đơn</h3>
+          <h3 class="card-title">Đơn Đặt Hàng</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -44,12 +44,12 @@ include "header.php" ;
               <thead>
                   <tr>
                       <th style="width: 1%">ID_HĐ</th>
-                      <th style="width: 10%">Thời Gian</th>
+                      <th style="width: 10%">Time</th>
                       <th style="width: 10%">User Name</th>
                       <th style="width: 20%">Full Name</th>
                       <th style="width: 20%">Address</th>
-                      <th style="width: 20%">Email</th>
-                      <th style="width: 10%">Phone</th>
+                      <th style="width: 15%">Phone</th>
+                      <th style="width: 15%">Total</th>
                   </tr>
               </thead>
               <tbody>
@@ -75,15 +75,15 @@ include "header.php" ;
                       <td class="project_progress"><?php echo $value['user_name'] ?></td>
                       <td class="project_progress"><?php echo $value['fullname'] ?></td>
                       <td class="project_progress"><?php echo $value['diachi'] ?></td>
-                      <td class="project_progress"><?php echo $value['email'] ?></td>
                       <td class="project_progress"><?php echo $value['dienthoai'] ?></td>
+                      <td class="project_progress"><?php echo number_format($value['tongcong'])?> VND</td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-danger btn-sm" href="deluser.php?id=<?php echo $value['user_name'] ?>">
+                          <a class="btn btn-danger btn-sm" href="delDonDat.php?username=<?php echo $value['user_name'] ?>&&thoigian=<?php echo $value['ThoiDiemDatHang'] ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
-                          <a class="btn btn-info btn-sm" href="editproduct.php?id=<?php echo $value['user_name'] ?>">
+                          <a class="btn btn-info btn-sm" href="chitiethd.php?user=<?php echo $value['user_name']?>&&idHD=<?php echo $value['idHD']?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Detail

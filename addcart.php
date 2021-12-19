@@ -4,6 +4,9 @@
     if(isset($_POST['addqty'])){
         $sl = $_POST['addqty'] ;
     }
+    else{
+        $sl = 1;
+    }
 ?>
 <?php
 require "config.php";
@@ -21,6 +24,7 @@ $product = new Product;
     //b2: kiem tra session:
     if(isset($_SESSION['cart']))
     {
+        
         if(isset($_SESSION['cart'][$id]) && isset($_POST['addqty'])){
             $_SESSION['cart'][$id]['qty'] += $sl;
         }
@@ -28,7 +32,7 @@ $product = new Product;
             $_SESSION['cart'][$id]['qty'] += 1;
         }
         else{
-            $_SESSION['cart'][$id]['qty'] = 1;
+            $_SESSION['cart'][$id]['qty'] = $sl;
         }
         $_SESSION['cart'][$id]['id'] = $value['id'];
         $_SESSION['cart'][$id]['name'] = $value['name'];

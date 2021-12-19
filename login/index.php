@@ -46,16 +46,13 @@
 						<input type="checkbox" name="remember" checked = "check">Remember Me
 					</div>
 					<div class="form-group">
-						<input name="submit" type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" value="Login" name="submit" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
 					Don't have an account?<a href="resignter.php">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="forgot.php">Forgot your password?</a>
 				</div>
 			</div>
 		</div>

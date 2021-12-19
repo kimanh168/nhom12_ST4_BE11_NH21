@@ -42,8 +42,7 @@ include "header.php";
     <div class="col-sm-2 hidden-xs"><img src="./img/<?php echo $value['image'] ?>" style="width: 70px" alt="">
      </div> 
      <div class="col-sm-10"> 
-      <h4 class="nomargin"><?php echo $value['name'] ?></h4> 
-      <p><?php echo $value['description'] ?></p> 
+      <a href="thongtinsp.php?id=<?php echo $value['id'] ?>"><h4 class="nomargin"><?php echo $value['name'] ?></h4> </a>
      </div> 
     </div> 
    </td> 

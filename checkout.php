@@ -38,6 +38,25 @@ if(isset($_SESSION['cart'])) :
 							<div class="section-title">
 								<h3 class="title">Billing address</h3>
 							</div>
+							<?php 
+								if(isset($_SESSION['user'])):
+								$getUserBy = $user -> getUserBy($_SESSION['user']);
+								foreach($getUserBy as $value): 
+							?>
+							<div class="form-group">
+								<input class="input" type="text" name="fullname" placeholder="Full Name" value="<?php echo $value['fullname'] ?>">
+							</div>
+							<div class="form-group">
+								<input class="input" type="email" name="email" placeholder="Email" value="<?php echo $value['email'] ?>">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="address" placeholder="Address" value="<?php echo $value['address'] ?>">
+							</div>
+							<div class="form-group">
+								<input class="input" type="tel" name="phone" placeholder="Telephone" value="<?php echo $value['phone'] ?>">
+							</div>
+							<?php endforeach;?>
+							<?php else: ?>
 							<div class="form-group">
 								<input class="input" type="text" name="fullname" placeholder="Full Name">
 							</div>
@@ -45,11 +64,12 @@ if(isset($_SESSION['cart'])) :
 								<input class="input" type="email" name="email" placeholder="Email" >
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="address" placeholder="Address" >
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="phone" placeholder="Telephone">
+								<input class="input" type="tel" name="phone" placeholder="Telephone" >
 							</div>
+							<?php  endif;  ?>
 						</div>
 						<!-- /Billing Details -->
 						<!-- Order notes -->

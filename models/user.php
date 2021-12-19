@@ -62,7 +62,7 @@ class User extends Db
         return $items;
     }      
 
-    public function getAllUsers ()
+    public function getAllUsers()
     {
         $sql = self::$connection->prepare("SELECT * 
         FROM user 
@@ -107,5 +107,14 @@ class User extends Db
         $sql->bind_param("i",$id);
         return  $sql->execute();
     } 
+    public function getUserBy($username)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `user` WHERE `role_id` = 1 AND `username`= ?");
+        $sql->bind_param("s",$username);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
 }
 ?>
