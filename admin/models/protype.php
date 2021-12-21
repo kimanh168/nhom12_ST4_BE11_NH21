@@ -40,5 +40,20 @@
             $sql->bind_param("si",$type_name,$type_id);
             return $sql->execute();
         }
+
+        public function checkProtype($type_id)
+        {
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`= ?");
+        $sql->bind_param("i",$type_id);
+        $sql->execute();
+        //$items = array();
+        $items = $sql->get_result()->num_rows;
+        if ($items >= 1){
+           return true;
+        }
+        else {
+           return false;
+            }
+        }    
     }
 ?>

@@ -13,11 +13,12 @@
     $getUserBy = $user -> getUserBy($_SESSION['user']);
     foreach($getUserBy as $value): 
 ?>
-<form id="waterform" method="post">
+<form id="waterform" method="POST">
 
 <div class="formgroup" id="name-form">
     <label for="name">Your name*</label>
-    <input type="text" id="name" name="name" value="<?php echo $value['fullname'] ?>"/>
+    <input type="text" id="name" name="name" value="<?php echo $value['fullname'] ?>">
+    
 </div>
 
 <div class="formgroup" id="email-form">

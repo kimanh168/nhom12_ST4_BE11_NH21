@@ -42,13 +42,12 @@ if(isset($_SESSION['cart'])) :
     <div class="col-sm-2 hidden-xs"><img src="./img/<?php echo $val['image'] ?>" style="width: 70px" alt="">
      </div> 
      <div class="col-sm-10"> 
-      <h4 class="nomargin"><?php echo $val['name'] ?></h4>  
+      <h4 class="nomargin"><a href="thongtinsp.php?id=<?php echo $val['id'] ?>"><?php echo $val['name'] ?></a></h4>  
      </div> 
     </div> 
    </td> 
    <td data-th="Price"><?php echo number_format($val['price'])?> đ</td> 
-   <td data-th="Quantity"><input type="number" class="form-control text-center" value="<?php echo $val['qty'] ?>" >
-   </td> 
+   <td data-th="Quantity"><?php echo number_format($val['qty']) ?></td> 
    <td data-th="Subtotal" class="text-center"><?php echo number_format($val['cost'])?> đ</td> 
    <td class="actions" data-th="">
     <a href="delcart.php?id=<?php echo $val['id'] ?>"><button class="btn btn-danger btn-sm" ><i class="fa fa-trash-o"></i>

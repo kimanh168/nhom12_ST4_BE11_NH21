@@ -44,7 +44,7 @@ $product = new Product;
     else
     {
         $_SESSION['cart'][$id]['id'] = $value['id'];
-        $_SESSION['cart'][$id]['qty'] = 1;
+        $_SESSION['cart'][$id]['qty'] = $sl;
         $_SESSION['cart'][$id]['name'] = $value['name'];
         $_SESSION['cart'][$id]['price'] = $value['price'];
         $_SESSION['cart'][$id]['image'] = $value['image'];

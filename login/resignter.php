@@ -3,7 +3,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://itexpress.vn/js/noel.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +17,6 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="styles.css">
-
 </head>
 <body>
 <div class="container">
@@ -50,7 +48,7 @@
 						</div>
 						<input name="fullname" type="text" class="form-control" placeholder="Your Name" required pattern="{3,}(\s?\w+)+">
 						<div class="valid-feedback">Looks good!</div>
-                		<div class="invalid-feedback">Vui lòng nhập họp tên đầy đủ</div>
+                		<div class="invalid-feedback">Vui lòng nhập họ tên đầy đủ</div>
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">

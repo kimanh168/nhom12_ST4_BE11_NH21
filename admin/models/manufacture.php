@@ -37,5 +37,20 @@
             $sql->bind_param("si",$manu_name,$manu_id);
             return $sql->execute();
         }
+        public function checkManu($manu_id)
+        {
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `manu_id`= ?");
+        $sql->bind_param("i",$manu_id);
+        $sql->execute();
+        //$items = array();
+        $items = $sql->get_result()->num_rows;
+        if ($items >= 1){
+           return true;
+        }
+        else 
+        {
+           return false;
+        }
+        }    
 }
 ?>

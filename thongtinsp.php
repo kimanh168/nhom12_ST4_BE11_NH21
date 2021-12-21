@@ -47,7 +47,7 @@
 								</div>
 								<div class="order-col">
 									<div><strong>Số Lượng Mua</strong></div>
-									<div><input id="addqty" name="addqty" type="number" class="form-control" placeholder="Số Lượng" ></div>
+									<div><input id="addqty" name="addqty" type="number" min="0" class="form-control" placeholder="Số Lượng" ></div>
 								</div>
 								<div style ="padding-left: 150px" class="form-group  order-submit ">
 									<input name="submit" type="submit" value="add to cart" class="primary-btn ">
@@ -68,17 +68,17 @@
 		</div>
 		<!-- /SECTION -->
 		<script>
-			const form = document.querySelector('form');
-			form.addEventListener('submit', event => {
-				var phone = document.getElementById("addqty").value;
-				if (phone <= 0){
-					alert('Số lượng không được âm!');
-					// submit event detected
-					event.preventDefault();
-					e.preventDefault();
-    				e.stopPropagation()
-				}	
-			})
+			// Select your input element.
+			var number = document.getElementById('addqty');
+
+			// Listen for input event on numInput.
+			number.onkeydown = function(e) {
+			if(!((e.keyCode > 95 && e.keyCode < 106)
+				|| (e.keyCode > 47 && e.keyCode < 58) 
+				|| e.keyCode == 8)) {
+					return false;
+				}
+			}
 		</script>
-        <?php endforeach; endif ?>
+    <?php endforeach; endif ?>
 <?php include "footer.html" ?>
