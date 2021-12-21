@@ -75,7 +75,7 @@ $layLoa=$product->layLoa();
 				<div class="container">
 					<ul class="header-links pull-left">
 						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> hileo52@email.com</a></li>
 						<li><a ><i class="fa fa-map-marker"></i> 46 Lagi, Bình Thuận, Việt Nam</a></li>
 					</ul>
 					<ul class="header-links pull-right">

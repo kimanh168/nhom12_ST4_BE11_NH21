@@ -16,7 +16,11 @@ if  (isset($_POST['submit'])) {
             if(isset($_POST['remember'])){
                setcookie('user',$username,time()+3600,'/','',0,0);
                setcookie('pass',$password,time()+3600,'/','',0,0);
-              } 
+              }
+            else{
+               setcookie('user',$username,time()-3600,'/');
+               setcookie('pass',$password,time()-3600,'/');
+            }
             header('location:../index.php');
         }
         else{
